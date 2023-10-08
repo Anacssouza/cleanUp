@@ -1,0 +1,192 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Forum </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/forum.css' %}">
+    <link rel="stylesheet" href="{% static '/css/reset.css' %}">
+</head>
+  <body style='background:#87CEFA'>
+    {% include '_cabecalhoLogado.html' %}
+    <div class="d-flex flex-column title">
+      <div>
+        <h1 class="text-center"> Forum </h1>
+      </div>
+    <div class="d-flex justify-content-center">
+       <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalCria">
+         Adicionar
+       </a>
+
+        <!-- Modal -->
+        <div class="modal fade" id="ModalCria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header d-flex flex-column">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h2 class="text-center text-primary-emphasis"> Criação de tópico </h2>
+              </div>
+              <div class="modal-body">
+                 <div class="form-box register d-flex flex-column text-primary-emphasis">
+                  <div class="d-flex justify-content-center">
+                      <form name="form" id="form" method="post" action="/criaF/">
+                          {% csrf_token %}
+                           <div class="input-box w-100 d-flex flex-column">
+                               <label> Título </label>
+                               {{ form.titulo }}
+                          </div>
+                          <div class="input-box w-100 textarea d-flex flex-column">
+                              <label> Descrição </label>
+                              {{ form.descricao.as_textarea }}
+                          </div>
+                          <div class="d-flex justify-content-center botoesForum">
+                              <a class="btn btn-dark" href="/forum"> voltar </a>
+                              <input type="submit" class="btn btn-success" value="Salvar">
+                          </div>
+                      </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a type="button" class="btn btn-outline-success p-2 w-10" href="/criaForum"> Adicionar </a>
+        </div>
+    </div>
+
+
+
+    <div class="container my-3 ">
+      <nav class="breadcrumb ">
+      </nav>
+
+    <form class="align-items-center">
+        <span> <ion-icon name="search"></ion-icon> </span>
+       <input type="text" class="pesquisaForum" id="inlineFormInputGroupUsername" placeholder="Pesquise sobre algum tópico">
+    </form>
+
+
+      <!-- categoria -->
+      <div class="row">
+        <div class="col-12 col-xl-12">
+          <h2 class="h4 category mb-0 p-4 rounded-top text-light"> Categoria </h2>
+          <table class="table table-striped table-bordered table-responsive ">
+            <thead class="table-primary">
+              <tr>
+                <th scope="col" class="forum-col"> Forum </th>
+                <th scope="col"> Comentários </th>
+                <th scope="col" class="last-post-col"> Ações </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for db in db %}
+                <tr>
+                    <td>
+                      <h3 class="h5 mb-0">{{db.titulo}}</h3>
+                      <p class="mb-0">{{db.descricao}} </p>
+                    </td>
+
+                  <td>
+                    <div> 9 </div>
+                  </td>
+                  <td>
+                    <!-- Button trigger modal -->
+                    <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      Ver comentários
+                    </a>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
+                        <div class="modal-content">
+                          <div class="modal-header d-flex flex-column">
+                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">{{db.titulo}}</h1>
+                            <p> {{db.descricao}} </p>
+                          </div>
+                          <div class="modal-body">
+                            <strong> Comentários: </strong>  <br>
+                            <div>
+                              <p> Teste teste teste teste teste </p>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <a type="button" class="btn btn-primary"> Adicionar comentário </a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+
+        <div>
+        </div>
+
+    <!--    <div class="col-12 col-xl-3">
+          <aside>
+            <div class="row">
+              <div class="col-12 col-sm-6 col-xl-12">
+                <div class="card mb-3 mb-sm-0 mb-xl-3">
+                  <div class="card-body">
+                    <h2 class="h4 card-title"> Members online </h2>
+                    <ul class="list-noStyle mb-0">
+                      <li><a href="#"> Member Name </a></li>
+                      <li><a href="#"> Member Name </a></li>
+                      <li><a href="#"> Member Name </a></li>
+                      <li><a href="#"> Member Name </a></li>
+                      <li><a href="#"> Member Name </a></li>
+                    </ul>
+                  </div>
+                  <div class="card-footer">
+                    <dl class="row mb-0">
+                      <dt class="col-8"> Total: </dt>
+                      <dd class="col-4 mb-0"> 20 </dd>
+                    </dl>
+                    <dl class="row mb-0">
+                      <dt class="col-8"> Members </dt>
+                      <dd class="col-4 mb-0"> 7 </dd>
+                    </dl>
+                    <dl class="row mb-0">
+                      <dt class="col-8"> Guests </dt>
+                      <dd class="col-4 mb-0"> 11 </dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-sm-6 col-xl-12">
+                <div class="card">
+                  <div class="card-body">
+                    <h2 class="h4 card-title"> Statistics </h2>
+                    <dl class="row mb-0">
+                      <dt class="col-8"> Total Forums </dt>
+                      <dd class="col-4 mb-0"> 20 </dd>
+                    </dl>
+                     <dl class="row mb-0">
+                      <dt class="col-8"> Total Members </dt>
+                      <dd class="col-4 mb-0"> 7 </dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+    -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="{% static '/js/forum.js' %}"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+  </body>
+</html>

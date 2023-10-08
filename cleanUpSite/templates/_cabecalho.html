@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title> Clean Up </title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/_cabecalho.css' %}">
+</head>
+<body>
+
+    <header>
+        <h2 class="logo"> Logo </h2>
+        <nav class="navigation">
+            <a href="#" > Home </a>
+            <a href="#" > Contato </a>
+
+            <button class="btnLogin-popup"> Login </button>
+        </nav>
+    </header>
+
+    {{ error }}
+    <div class="wrapper desativado">
+        <span class="icon-close"><ion-icon name="close"></ion-icon></span>
+
+        <div class="form-box login">
+            <h2> Login </h2>
+            <form name="form" id="form2" method="post" action="/sigin/">
+                {% csrf_token %}
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" name="email" id="email" required>
+                    <label> Email </label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+
+                    <input type="password" name="password" id="password" required>
+                    <label for="password"> Senha </label>
+                </div>
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox" name="" id=""> Lembrar meu usuário
+                    </label>
+                    <a href="#"> Esqueci minha senha </a>
+                </div>
+                <button type="submit" class="btn"> Login </button>
+                <div class="login-register">
+                    <p> Não tem uma conta?
+                        <a href="#" class="register-link"> Cadastre-se</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-box register">
+            <h2> Cadastro </h2>
+            <form name="form" id="form" method="post" action="/create/">
+                {% csrf_token %}
+
+                 <div class="input-box">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    {{form.nome}}
+                    <label> Nome </label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    {{form.email}}
+                    <label> Email </label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <label> Senha </label>
+                    {{form.senha}}
+                </div>
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox" name="" id=""> Eu concordo com os termos
+                    </label>
+                </div>
+                <input type="submit" class="btn" value="Salvar">
+                <div class="login-register">
+                    <p> Já tem uma conta?
+                        <a href="#" class="login-link"> Entre aqui</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="{% static '/js/home.js' %}"></script>
+
+    <!-- pros icones -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

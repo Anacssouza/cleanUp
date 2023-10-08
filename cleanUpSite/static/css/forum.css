@@ -1,0 +1,65 @@
+{% load static %}
+
+body {
+    background: #ffffff;
+    color: white;
+}
+
+.category {
+    background-color: #000000;
+}
+
+.forum-col {
+    min-width: 256px;
+}
+
+.last-post-col {
+    min-width: 192px;
+}
+
+.title {
+    margin-top: 100px;
+}
+
+.breadcrumb, .teste {
+    width: 30em;
+}
+
+textarea {
+    width: 100%; /* Define a largura como 100% do elemento pai */
+    height: 70px; /* Define uma altura fixa (ajuste conforme necessário) */
+    border-radius: 10px; /* Adiciona uma borda para melhorar a aparência */
+    padding: 5px; /* Adiciona um preenchimento interno para afastar o texto das bordas */
+    font-size: 16px; /* Define o tamanho da fonte */
+    border: 1px solid;
+    /* Outros estilos desejados */
+}
+
+id_titulo {
+    border-radius: 10px;
+}
+
+.botoesForum {
+    margin: 10px;
+}
+
+.botoesForum .btn {
+    margin: 5px;
+}
+
+input[type="text"] {
+    border-radius: 10px; /* Adiciona uma borda para melhorar a aparência */
+    padding: 5px; /* Adiciona um preenchimento interno para afastar o texto das bordas */
+    font-size: 16px; /* Define o tamanho da fonte */
+    border: 1px solid;
+}
+
+form .pesquisaForum {
+    width: 400px;
+    margin: 20px 0;
+    border: 1px solid #808080;
+}
+
+form span {
+    width: 30px;
+}

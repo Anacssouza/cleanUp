@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> CleanUp - Minha Conta </title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/minhaConta.css' %}">
+</head>
+<body>
+    {% include '_cabecalhoLogado.html' %}
+
+    <div class="conta">
+        <h1> Minha Conta </h1>
+
+        <div class="col-8 m-auto pt-2 pb-2 text-center">
+            <strong> Nome: </strong> {{db.nome}} <br>
+            <strong> Email: </strong> {{db.email}} <br>
+            <strong> Senha: </strong> {{db.senha}} <br>
+        </div>
+
+       <!-- <form name="form" id="form" method="post" action="">
+            {% csrf_token %}
+
+             <div class="input-box">
+                <span class="icon"><ion-icon name="person"></ion-icon></span>
+                {{form.nome}}
+                <label> Nome </label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                {{form.email}}
+                <label> Email </label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                {{form.senha}}
+                <label> Senha </label>
+            </div> -->
+            <button type="submit" class="btn" value="Editar"> Editar </button>
+            <input type="submit" class="btn" value="Salvar">
+            <div class="login-register">
+                <p> Já tem uma conta?
+                    <a href="#" class="login-link"> Editar </a>
+                </p>
+            </div>
+    </div>
+</body>
+</html>

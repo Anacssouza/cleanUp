@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title> Clean Up </title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+</head>
+<body>
+    {% include '_cabecalhoLogado.html' %}
+
+    <div class="main-header">
+        <div class="layers">
+            <div class="layer_header">
+                <div class="layers_title"> Florestas </div>
+            </div>
+            <div class="layer layers_base" style="background-image: url(../static/img/fundoFloresta.png);"> </div>
+            <div class="layer layers_middle"  style="background-image: url(../static/img/florestaMeio.png);"> </div>
+            <div class="layer layers_front" style="background-image: url(../static/img/florestaFrente.png);"> </div>
+        </div>
+
+    </div>
+
+    <article class="main-article" style="background-image: url(../static/img/fundo2.jpg);">
+        <div class="main-article_content">
+            <h2 class="main-article_header">Conteúdo aqui</h2>
+            <p class="main-article_paragraph">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis error provident dignissimos facere. Repellendus tempore autem qui! Quia magnam tempora esse id necessitatibus corrupti mollitia expedita sapiente cum rerum, ut dicta laboriosam!</p>
+            <button> clique aqui </button>
+        </div>
+
+    </article>
+
+    <div onclick="rotateBottle()" >
+        <img src="{% static '/img/bottle.png' %}" alt="" class="bottle" >
+        <div class="liquid"></div>
+    </div>
+
+    <script src="{% static '/js/script.js' %}"></script>
+</body>
+</html>

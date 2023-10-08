@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title> Clean Up </title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/_cabecalhoLogado.css' %}">
+</head>
+<body>
+    <header>
+        <h2 class="logo"> Logo </h2>
+        <nav class="navigation">
+            <ul>
+                <li class="nav">
+                    <a href="#" > Home </a>
+                </li>
+                <li class="nav">
+                    <a> Conteúdos </a>
+                </li>
+                <li class="nav">
+                    <a href="#" > Contato </a>
+                </li>
+                <li>
+                    <a class="minhaConta" href="/minhaConta/{{dbs.id}}/"> Minha Conta </a>
+                    <ul>
+                        <li>
+                            <a href="/minhaConta/{{dbs.id}}/"> Editar </a>
+                        </li>
+                        <li>
+                            <a href="/sair"> Sair </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </nav>
+    </header>
+
+
+
+    <script src="{% static '/js/home.js' %}"></script>
+
+    <!-- pros icones -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
