@@ -1,13 +1,10 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
-
-
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from cleanUpSite.form import UsuariosForm, CriaForum
-from cleanUpSite.models import Usuarios, Foruns
-
-# Create your views here.
+from cleanUpSite.form import CriaForum
+from cleanUpSite.models import Foruns
 def inicial(request):
     return render(request, 'inicial.html')
 
@@ -15,24 +12,62 @@ def inicial(request):
 #mudei aqui
 def home(request):
     data = {}
-    data['form'] = UsuariosForm()
+    #data['form'] = UsuariosForm()
+    data['form'] = User
     return render(request, 'home.html', data)
 
+#cadastro
 def create(request):
-    form = UsuariosForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('inicial')
+ #   form = UsuariosForm(request.POST or None)
+  #  if form.is_valid():
+  #      form.save()
+  #      return redirect('inicial')
+    if request.method == 'GET':
+      return render(request, 'home.html')
+    else:
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
 
-def sigin(request):
+        user = User.objects.filter(email=email).first()
+
+        if user:
+            return render(request, 'home.html', {
+                'error': 'E-mail já existe'
+            })
+
+        user = User.objects.create_user(username=username, email=email, password=senha)
+        user.save()
+        return render(request, 'desmatamento.html')
+
+#login
+def login_site(request):
 
     if request.method == 'GET':
+        return render(request,'home.html')
+    else:
+        username = request.POST.get('username')
+        senha = request.POST.get('senha')
+
+        user = authenticate(username=username, password=senha)
+        print(user)
+
+        if user:
+            login(request, user)
+            return render(request, 'desmatamento.html')
+        else:
+            return render(request, 'home.html', {
+                'error': 'Dados errados'
+            })
+
+""" if request.method == 'GET':
         return render(request,'desmatamento',{
             'form': UsuariosForm
         })
     else:
         user = authenticate(
-            request, email=request.POST['email'], password=request.POST['password']
+            request, email=request.POST['email'],
+            password=request.POST['password']
         )
 
         if user is None:
@@ -43,6 +78,7 @@ def sigin(request):
         else:
             login(request, user)
             return redirect('desmatamento')
+"""
 
 #até aqui
 
@@ -66,7 +102,7 @@ def criaForum(request):
     data['form'] = CriaForum()
     return render(request, 'criaForum.html', data)"""
 
-
+@login_required(login_url="home")
 def forum(request):
     data = {}
     if request.method == 'POST':
@@ -93,7 +129,7 @@ def criaF(request):
 
 def minhaConta(request, pk):
     data = {}
-    data['db'] = Usuarios.objects.get(pk=pk)
+    data['db'] = User.objects.get(pk=pk)
     return render(request, 'minhaConta.html', data)
 
 def sair(request):

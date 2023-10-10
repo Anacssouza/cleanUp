@@ -104,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTHENTICATION_BACKENDS = [
-    'cleanUpSite.backends.custom_auth.EmailBackend', #adicionado
+    #'cleanUpSite.backends.custom_auth.EmailBackend', #adicionado
     'django.contrib.auth.backends.ModelBackend',
 ]
 

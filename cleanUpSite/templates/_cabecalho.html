@@ -1,5 +1,7 @@
 {% load static %}
 
+
+<!--cabeçalho logado e não logado num só, o css tb -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,33 +11,63 @@
 </head>
 <body>
 
+
     <header>
         <h2 class="logo"> Logo </h2>
         <nav class="navigation">
-            <a href="#" > Home </a>
-            <a href="#" > Contato </a>
+            {% if user.is_authenticated %}
+                <ul>
+                    <li class="nav">
+                        <a href="/" > Home </a>
+                    </li>
+                    <li class="nav">
+                        <a> Conteúdos </a>
+                    </li>
+                    <li class="nav">
+                        <a href="#" > Contato </a>
+                    </li>
+                    <li>
+                        <a class="minhaConta" href="/minhaConta/{{dbs.id}}/"> Minha Conta </a>
+                        <ul>
+                            <li>
+                                <a href="/minhaConta/{{dbs.id}}/"> Editar </a>
+                            </li>
+                            <li>
+                                <a href="/sair"> Sair </a>
+                            </li>
+                        </ul>
+                    </li>
 
-            <button class="btnLogin-popup"> Login </button>
+                </ul>
+
+            {% else %}
+                <a href="/" > Home </a>
+                <a href="/contato/" > Contato </a>
+
+                <button class="btnLogin-popup"> Login </button>
+            {% endif %}
+
         </nav>
     </header>
+    <div style="left: 50%;; margin-top: 100px; z-index: 2; position: absolute">
+        {{ error }}
+    </div>
 
-    {{ error }}
     <div class="wrapper desativado">
         <span class="icon-close"><ion-icon name="close"></ion-icon></span>
-
         <div class="form-box login">
             <h2> Login </h2>
-            <form name="form" id="form2" method="post" action="/sigin/">
+            <form name="form" id="form2" method="post" action="{% url 'login' %}">
                 {% csrf_token %}
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="email" name="email" id="email" required>
+                    <input type="text" name="username" id="email" required>
                     <label> Email </label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
 
-                    <input type="password" name="password" id="password" required>
+                    <input type="password" name="senha" id="password" required>
                     <label for="password"> Senha </label>
                 </div>
                 <div class="remember-forgot">
@@ -44,7 +76,7 @@
                     </label>
                     <a href="#"> Esqueci minha senha </a>
                 </div>
-                <button type="submit" class="btn"> Login </button>
+                <input type="submit" class="btn" value="logar">
                 <div class="login-register">
                     <p> Não tem uma conta?
                         <a href="#" class="register-link"> Cadastre-se</a>
@@ -55,23 +87,27 @@
 
         <div class="form-box register">
             <h2> Cadastro </h2>
-            <form name="form" id="form" method="post" action="/create/">
+            <form name="form" id="form" method="post" action="{% url 'create' %}">
                 {% csrf_token %}
 
                  <div class="input-box">
                     <span class="icon"><ion-icon name="person"></ion-icon></span>
-                    {{form.nome}}
+                    <input type="text" placeholder="Nome" name="username">
+                 <!--   {{form.nome}}-->
                     <label> Nome </label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    {{form.email}}
+                    <input type="email" placeholder="Email" name="email">
+                 <!--
+                    {{form.email}} -->
                     <label> Email </label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" placeholder="Senha" name="senha">
                     <label> Senha </label>
-                    {{form.senha}}
+                   <!--  {{form.senha}} -->
                 </div>
                 <div class="remember-forgot">
                     <label>
@@ -87,6 +123,7 @@
             </form>
         </div>
     </div>
+
 
 
     <script src="{% static '/js/home.js' %}"></script>
