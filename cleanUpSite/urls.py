@@ -14,7 +14,7 @@ urlpatterns = [
     path('lixao/', views.lixao),
     path('tema3/', views.tema3),
     path('forum/', views.forum, name='forum'),
-    path('minhaConta/<int:pk>/', views.minhaConta, name='minhaConta'),
+    path('minhaConta/', views.minhaConta, name='minhaConta'),
 ]
 
 #path('criaForum/', views.criaForum, name='criaForum') -> apaguei essa rota

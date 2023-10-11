@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from cleanUpSite.form import CriaForum
 from cleanUpSite.models import Foruns
+from django.contrib.auth import get_user
 def inicial(request):
     return render(request, 'inicial.html')
 
@@ -127,10 +128,9 @@ def criaF(request):
         form.save()
         return redirect('forum')
 
-def minhaConta(request, pk):
-    data = {}
-    data['db'] = User.objects.get(pk=pk)
-    return render(request, 'minhaConta.html', data)
+def minhaConta(request):
+    user = request.user
+    return render(request, 'minhaConta.html', {'user': user})
 
 def sair(request):
     logout(request)
