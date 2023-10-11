@@ -9,11 +9,201 @@ body {
     color: white;
 }
 
-.conta {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    height: 100vh;
+.Info {
+  width: 393px;
+  height: 667px;
+  position: relative;
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  border: 2px #EBEBEE solid;
+}
+
+.Foto {
+  width: 100px;
+  height: 100px;
+  left: 30px;
+  top: 30px;
+  position: absolute;
+  background: linear-gradient(0deg, #FFA78D 0%, #FFA78D 100%);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.10);
+  border: 1px #F8F8FF solid;
+}
+
+.Uploadfoto {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  left: 263px;
+  top: 68px;
+  position: absolute;
+  background: #F0EFFA;
+  border-radius: 100px;
+  overflow: hidden;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  display: inline-flex;
+}
+
+.UploadPhoto {
+  color: rgba(31, 31, 31, 0.80);
+  font-size: 10px;
+  font-family: Outfit;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.Informationminhaconta {
+  width: 333px;
+  height: 190px;
+  left: 30px;
+  top: 154px;
+  position: absolute;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.10);
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px rgba(0, 0, 0, 0.15) solid;
+}
+
+.Nome {
+  left: 16px;
+  top: 18px;
+  position: absolute;
+  color: rgba(31, 31, 31, 0.70);
+  font-size: 12px;
+  font-family: Outfit;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.Sid {
+  left: 16px;
+  top: 42px;
+  position: absolute;
+  color: rgba(34, 34, 34, 0.90);
+  font-size: 12px;
+  font-family: Outfit;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.Editar {
+  padding-top: 5px;
+  padding-bottom: 4px;
+  padding-left: 12px;
+  padding-right: 13px;
+  position: absolute;
+  background: #F0EFFA;
+  border-radius: 72.66px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+}
+
+.edNome {
+    left: 250px;
+    top: 40px;
+}
+
+.edEmail {
+    left: 250px;
+    top: 90px;
+}
+
+.edSenha {
+    left: 250px;
+    top: 140px;
+}
+
+.Email {
+  left: 16px;
+  top: 76px;
+  position: absolute;
+  color: rgba(31, 31, 31, 0.70);
+  font-size: 12px;
+  font-family: Outfit;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.SiddxdGrowthxCom {
+  left: 16px;
+  top: 100px;
+  position: absolute;
+  color: rgba(34, 34, 34, 0.90);
+  font-size: 12px;
+  font-family: Outfit;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.Senha {
+  left: 16px;
+  top: 134px;
+  position: absolute;
+  color: rgba(31, 31, 31, 0.70);
+  font-size: 12px;
+  font-family: Outfit;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.Sobreminhaconta {
+  height: 95px;
+  padding-top: 18px;
+  padding-bottom: 15px;
+  padding-left: 16px;
+  padding-right: 16px;
+  left: 30px;
+  top: 368px;
+  position: absolute;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.10);
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px rgba(0, 0, 0, 0.15) solid;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 27px;
+  display: inline-flex;
+}
+
+.SobreSid {
+  color: rgba(34, 34, 34,
+
+.MembroDesdeXxXxxxxxxxxxxx {
+    width: 301px;
+    color: rgba(73, 69, 79, 0.80);
+    font-size: 12px;
+    font-family: Outfit;
+    font-weight: 400;
+    letter-spacing: 0.12px;
+    word-wrap: break-word;
+}
+
+/* Estilos para a classe Acoes */
+.Acoes {
+    width: 333px;
+    height: 124px;
+    left: 30px;
+    top: 500px;
+    position: absolute;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.10);
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px rgba(0, 0, 0, 0.15) solid;
+}
+
+.AEs {
+    left: 16px;
+    top: 18px;
+    position: absolute;
+    color: rgba(34, 34, 34, 0.90);
+    font-size: 16px;
+    font-family: Outfit;
+    font-weight: 500;
+    word-wrap: break-word;
 }

@@ -5,11 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <title> CleanUp - Minha Conta </title>
-    <link rel="stylesheet" type="text/css" href="{% static '/css/minhaConta.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/minhaConta.css' %}">
+
 </head>
 <body>
     {% include '_cabecalho.html' %}
-
+<!--
     <div class="conta">
         <h1> Minha Conta </h1>
 
@@ -17,8 +18,39 @@
             <strong> Nome: </strong> {{user.username}} <br>
             <strong> Email: </strong> {{user.email}} <br>
             <strong> Membro desde: </strong> {{user.date_joined}} <br>
-          <!--  <strong> Senha: </strong> {{user.password}} <br> -->
+          <strong> Senha: </strong> {{user.password}} <br>
         </div>
+-->
+ <div class="Info">
+    <div class="Foto"></div>
+    <div class="Uploadfoto">
+      <div class="UploadPhoto">Upload Photo</div>
+    </div>
+    <div class="Informationminhaconta">
+      <div class="Nome">Nome</div>
+      <div class="Sid"> {{user.username}} </div>
+      <div class="Editar edNome">Editar</div>
+      <div class="Email">Email</div>
+      <div class="SiddxdGrowthxCom">{{user.email}}</div>
+      <div class="Editar edEmail">Editar</div>
+      <div class="Senha">Senha</div>
+      <div class="Senha"> ****** </div>
+      <div class="Editar edSenha">Editar</div>
+    </div>
+    <div class="Sobreminhaconta">
+      <div class="SobreSid">Sobre Sid</div>
+      <div class="MembroDesdeXxXxxxxxxxxxxx">Membro desde XX XXXXXXXXXXXX</div>
+    </div>
+    <div class="Acoes">
+      <div class="AEs">Ações</div>
+      <div class="Salvaredicoesconta">
+        <div class="SalvarEdiEs">Salvar Edições</div>
+      </div>
+      <div class="Excluirconta">
+        <div class="ExcluirConta">Excluir Conta</div>
+      </div>
+    </div>
+  </div>
 
        <!-- <form name="form" id="form" method="post" action="">
             {% csrf_token %}
@@ -37,7 +69,7 @@
                 <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
                 {{form.senha}}
                 <label> Senha </label>
-            </div> -->
+            </div>
             <button type="submit" class="btn w-30" value="Editar"> Editar </button>
             <input type="submit" class="btn" value="Salvar">
             <button type="button" class="btn btn-success">Success</button>
@@ -46,6 +78,6 @@
                     <a href="#" class="login-link"> Editar </a>
                 </p>
             </div>
-    </div>
+    </div>-->
 </body>
 </html>
