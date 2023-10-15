@@ -6,9 +6,10 @@
     <meta charset="UTF-8">
     <title> CleanUp - Minha Conta </title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/minhaConta.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 </head>
-<body>
+<body class="body">
     {% include '_cabecalho.html' %}
 <!--
     <div class="conta">
@@ -21,36 +22,65 @@
           <strong> Senha: </strong> {{user.password}} <br>
         </div>
 -->
- <div class="Info">
-    <div class="Foto"></div>
-    <div class="Uploadfoto">
-      <div class="UploadPhoto">Upload Photo</div>
+<div class="container">
+
+    <div class="row col-11 m-auto infos">
+        <nav class="meubreadcrumb">
+          <ol class="bread" >
+            <li><a href="/"> Home </a></li>
+            <li> > </li>
+            <li class="atual"> Minha Conta </li>
+          </ol>
+        </nav>
+        <div class="col-5">
+            <img src="{% static '/img/mundoMinhaConta.png' %}" alt="">
+        </div>
+        <div class="col-5 mx-auto pb-2 info">
+            <div class="col mx-5 infoInicial">
+                <div class="foto"></div>
+                <div>
+                  <button class="btn btn-dark uploadPhoto">Adicionar Foto</button>
+                </div>
+            </div>
+            <div class="col-10 mx-auto p-3 Informationminhaconta">
+                <div class="nome">
+                    <h3>Nome</h3>
+                    <p>{{user.username}}</p>
+                </div>
+                <div class="email">
+                    <h3>Email</h3>
+                    <p>{{user.email}}</p>
+                </div>
+                <div class="senha">
+                    <div>
+                        <h3>Senha</h3>
+                        <p>******</p>
+                    </div>
+                    <a href="/editar/{{user.username}}" class="btn btn-dark editar">Editar</a>
+                </div>
+            </div>
+
+
+            <div class="col-10 mx-auto p-3 Sobreminhaconta">
+                <div class="sobre">
+                  <h2> Sobre {{user.username}} </h2>
+                  <h3>Membro desde {{user.date_joined}}</h3>
+                </div>
+            </div>
+
+            <div class="col-10 mx-auto p-3 Acoes">
+                <div class="AEs">
+                  <h2 > Ações </h2>
+                  <div class="botoesAcoes mx-auto">
+                    <button class="btn btn-success Salvar">Salvar Edições</button>
+                    <button class="btn btn-danger ExcluirConta">Excluir Conta</button>
+                  </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="Informationminhaconta">
-      <div class="Nome">Nome</div>
-      <div class="Sid"> {{user.username}} </div>
-      <div class="Editar edNome">Editar</div>
-      <div class="Email">Email</div>
-      <div class="SiddxdGrowthxCom">{{user.email}}</div>
-      <div class="Editar edEmail">Editar</div>
-      <div class="Senha">Senha</div>
-      <div class="Senha"> ****** </div>
-      <div class="Editar edSenha">Editar</div>
-    </div>
-    <div class="Sobreminhaconta">
-      <div class="SobreSid">Sobre Sid</div>
-      <div class="MembroDesdeXxXxxxxxxxxxxx">Membro desde XX XXXXXXXXXXXX</div>
-    </div>
-    <div class="Acoes">
-      <div class="AEs">Ações</div>
-      <div class="Salvaredicoesconta">
-        <div class="SalvarEdiEs">Salvar Edições</div>
-      </div>
-      <div class="Excluirconta">
-        <div class="ExcluirConta">Excluir Conta</div>
-      </div>
-    </div>
-  </div>
+</div>
+
 
        <!-- <form name="form" id="form" method="post" action="">
             {% csrf_token %}

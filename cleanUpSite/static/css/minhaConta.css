@@ -4,206 +4,241 @@
     box-sizing: border-box;
 }
 
-body {
-    background: black;
+body.body{
+    background-color: #22222c;
+}
+
+header {
     color: white;
 }
 
-.Info {
-  width: 393px;
-  height: 667px;
+.container {
+    width:100%;
+    margin-top: 7em;
+}
+
+.infos {
+    align-items: center;
+}
+
+.info {
+  height: 38rem;
   position: relative;
-  background: white;
+  background: #FFFFFF;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
   border: 2px #EBEBEE solid;
+  align-items: center;
+  padding-top: 2.0rem;
 }
 
-.Foto {
-  width: 100px;
-  height: 100px;
-  left: 30px;
-  top: 30px;
-  position: absolute;
+.foto {
+  width: 70px;
+  height: 70px;
+  position: relative;
   background: linear-gradient(0deg, #FFA78D 0%, #FFA78D 100%);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.10);
   border: 1px #F8F8FF solid;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
 }
 
-.Uploadfoto {
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  left: 263px;
-  top: 68px;
-  position: absolute;
-  background: #F0EFFA;
-  border-radius: 100px;
-  overflow: hidden;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 10px;
-  display: inline-flex;
+.infoInicial {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.UploadPhoto {
+.uploadPhoto {
   color: rgba(31, 31, 31, 0.80);
-  font-size: 10px;
-  font-family: Outfit;
-  font-weight: 500;
   word-wrap: break-word;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn.uploadPhoto {
+    padding: 0.3rem 0.7rem;
+    font-size: 1rem;
+    font-weight: 300;
+    border-radius: 20px;
 }
 
 .Informationminhaconta {
-  width: 333px;
+  top: 2em;
   height: 190px;
-  left: 30px;
-  top: 154px;
-  position: absolute;
+  position: relative;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.10);
   border-radius: 5px;
-  overflow: hidden;
   border: 1px rgba(0, 0, 0, 0.15) solid;
+  align-items: center;
+  background: #f8f8ff;
 }
 
-.Nome {
-  left: 16px;
-  top: 18px;
-  position: absolute;
+.nome h3{
+  position: relative;
   color: rgba(31, 31, 31, 0.70);
-  font-size: 12px;
-  font-family: Outfit;
+  font-size: 1rem;
+  font-weight: 300;
+  margin-bottom: -0.7rem;
+  word-wrap: break-word;
+}
+
+.nome p{
+  position: relative;
+  color: rgba(31, 31, 31, 0.70);
+  font-size: 1.5rem;
   font-weight: 500;
   word-wrap: break-word;
 }
 
-.Sid {
-  left: 16px;
-  top: 42px;
-  position: absolute;
-  color: rgba(34, 34, 34, 0.90);
-  font-size: 12px;
-  font-family: Outfit;
+.email h3{
+  position: relative;
+  color: rgba(31, 31, 31, 0.70);
+  font-size: 1rem;
+  font-weight: 300;
+  word-wrap: break-word;
+  margin-bottom: -0.7rem;
+}
+
+.email p{
+  position: relative;
+  color: rgba(31, 31, 31, 0.70);
+  font-size: 1.5rem;
   font-weight: 500;
   word-wrap: break-word;
 }
 
-.Editar {
-  padding-top: 5px;
-  padding-bottom: 4px;
-  padding-left: 12px;
-  padding-right: 13px;
-  position: absolute;
-  background: #F0EFFA;
-  border-radius: 72.66px;
+.senha {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 20px;
+}
+
+.senha h3{
+  position: relative;
+  color: rgba(31, 31, 31, 0.70);
+  font-size: 1rem;
+  font-weight: 300;
+  word-wrap: break-word;
+  margin-bottom: -0.60rem;
+}
+
+.senha p {
+  position: relative;
+  color: rgba(31, 31, 31, 0.70);
+  font-size: 1.5rem;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.editar {
+  position: relative;
   overflow: hidden;
   justify-content: center;
   align-items: center;
-  display: inline-flex;
+  height: 2rem;
 }
 
-.edNome {
-    left: 250px;
-    top: 40px;
+.btn.editar {
+    padding: 0 0.7rem;
+    font-size: 1rem;
+    font-weight: 300;
+    border-radius: 20px;
 }
 
-.edEmail {
-    left: 250px;
-    top: 90px;
-}
-
-.edSenha {
-    left: 250px;
-    top: 140px;
-}
-
-.Email {
-  left: 16px;
-  top: 76px;
-  position: absolute;
-  color: rgba(31, 31, 31, 0.70);
-  font-size: 12px;
-  font-family: Outfit;
-  font-weight: 500;
-  word-wrap: break-word;
-}
-
-.SiddxdGrowthxCom {
-  left: 16px;
-  top: 100px;
-  position: absolute;
-  color: rgba(34, 34, 34, 0.90);
-  font-size: 12px;
-  font-family: Outfit;
-  font-weight: 500;
-  word-wrap: break-word;
-}
-
-.Senha {
-  left: 16px;
-  top: 134px;
-  position: absolute;
-  color: rgba(31, 31, 31, 0.70);
-  font-size: 12px;
-  font-family: Outfit;
-  font-weight: 500;
-  word-wrap: break-word;
-}
+/* sobre */
 
 .Sobreminhaconta {
-  height: 95px;
-  padding-top: 18px;
-  padding-bottom: 15px;
-  padding-left: 16px;
-  padding-right: 16px;
-  left: 30px;
-  top: 368px;
-  position: absolute;
+  top: 3em;
+  height: 90px;
+  position: relative;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.10);
   border-radius: 5px;
-  overflow: hidden;
   border: 1px rgba(0, 0, 0, 0.15) solid;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 27px;
-  display: inline-flex;
+  align-items: center;
+  background: #f8f8ff;
 }
 
-.SobreSid {
-  color: rgba(34, 34, 34,
-
-.MembroDesdeXxXxxxxxxxxxxx {
-    width: 301px;
-    color: rgba(73, 69, 79, 0.80);
-    font-size: 12px;
-    font-family: Outfit;
-    font-weight: 400;
-    letter-spacing: 0.12px;
-    word-wrap: break-word;
+.sobre h2{
+  position: relative;
+  color: rgba(31, 31, 31, 0.70);
+  font-size: 1.5rem;
+  font-weight: 500;
+  word-wrap: break-word;
 }
 
-/* Estilos para a classe Acoes */
+.sobre h3{
+  position: relative;
+  color: rgba(31, 31, 31, 0.70);
+  font-size: 1rem;
+  font-weight: 300;
+  word-wrap: break-word;
+}
+
+/* Acoes */
 .Acoes {
-    width: 333px;
+    top: 4em;
     height: 124px;
-    left: 30px;
-    top: 500px;
-    position: absolute;
+    position: relative;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.10);
     border-radius: 5px;
-    overflow: hidden;
     border: 1px rgba(0, 0, 0, 0.15) solid;
+    justify-content: center;
+    background: #f8f8ff;
 }
 
-.AEs {
-    left: 16px;
-    top: 18px;
+.AEs h2{
+  position: relative;
+  color: rgba(31, 31, 31, 0.70);
+  font-size: 1.5rem;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+div.botoesAcoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.botoesAcoes .btn{
+    padding: 0.3rem 0.7rem;
+    font-size: 1rem;
+    font-weight: 300;
+    border-radius: 20px;
+}
+nav.meubreadcrumb {
     position: absolute;
-    color: rgba(34, 34, 34, 0.90);
-    font-size: 16px;
-    font-family: Outfit;
-    font-weight: 500;
-    word-wrap: break-word;
+    top: 5rem;
+    left: 3.5rem;
+    width: 50%;
+}
+
+.bread {
+    list-style: none;
+    display:flex;
+    flex-direction: row;
+    color: white;
+}
+
+.bread li {
+    margin-right: 1rem;
+}
+
+.bread .atual {
+    color: #606c38
+}
+
+.bread a{
+    text-decoration: none;
+    color: white;
+}
+
+.bread a:hover{
+    color: #606c38;
 }

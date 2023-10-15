@@ -2,9 +2,10 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from cleanUpSite.form import CriaForum
 from cleanUpSite.models import Foruns
+from django.contrib import messages
 from django.contrib.auth import get_user
 def inicial(request):
     return render(request, 'inicial.html')
@@ -39,7 +40,8 @@ def create(request):
 
         user = User.objects.create_user(username=username, email=email, password=senha)
         user.save()
-        return render(request, 'desmatamento.html')
+        login(request, user)
+        return render(request, 'minhaConta.html')
 
 #login
 def login_site(request):
@@ -55,7 +57,7 @@ def login_site(request):
 
         if user:
             login(request, user)
-            return render(request, 'desmatamento.html')
+            return render(request, 'minhaConta.html')
         else:
             return render(request, 'home.html', {
                 'error': 'Dados errados'
@@ -128,6 +130,7 @@ def criaF(request):
         form.save()
         return redirect('forum')
 
+@login_required(login_url="home")
 def minhaConta(request):
     user = request.user
     return render(request, 'minhaConta.html', {'user': user})
@@ -136,3 +139,19 @@ def sair(request):
     logout(request)
     return redirect('home')
 # exclui o arquivo sair.html tem q testar se não quebrou nada
+
+def editar(request, username):
+    cliente = User.objects.get(username=username)
+    form = User.objects.create_user(request.POST or None, instance=cliente)
+    if str(request.method) == 'POST':
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Cliente atualizado com sucesso!')
+            return render(request, 'minhaConta.html', {'cliente': cliente})
+        else:
+            messages.error(request, 'Erro ao alterar o contato')
+    context = {
+        'form': form,
+        'cliente': cliente
+    }
+    return render(request, 'minhaConta.html', context)
