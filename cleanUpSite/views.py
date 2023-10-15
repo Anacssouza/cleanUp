@@ -3,7 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect,get_object_or_404
-from cleanUpSite.form import CriaForum
+from cleanUpSite.form import CriaForum, CustomUserChangeForm
 from cleanUpSite.models import Foruns
 from django.contrib import messages
 from django.contrib.auth import get_user
@@ -140,18 +140,22 @@ def sair(request):
     return redirect('home')
 # exclui o arquivo sair.html tem q testar se não quebrou nada
 
-def editar(request, username):
-    cliente = User.objects.get(username=username)
-    form = User.objects.create_user(request.POST or None, instance=cliente)
-    if str(request.method) == 'POST':
+def editar(request):
+    if request.method == 'POST':
+        form = CustomUserChangeForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Cliente atualizado com sucesso!')
-            return render(request, 'minhaConta.html', {'cliente': cliente})
-        else:
-            messages.error(request, 'Erro ao alterar o contato')
-    context = {
-        'form': form,
-        'cliente': cliente
-    }
-    return render(request, 'minhaConta.html', context)
+            # Redirecione para a página de perfil ou outra página após a atualização
+    else:
+        form = CustomUserChangeForm(instance=request.user)
+
+    return render(request, 'minhaConta.html', {'form': form})
+
+def deletarUsuario(request, pk):
+    try:
+        user = User.objects.get(pk=pk)
+        user.delete()
+    except:
+        # Trate o caso em que o usuário não existe
+        pass
+    return redirect('home')

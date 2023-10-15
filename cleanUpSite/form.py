@@ -1,7 +1,8 @@
 from django.forms import ModelForm
 from cleanUpSite.models import Usuarios, Foruns
+from django.contrib.auth.models import User
 
-#class UsuariosForm(ModelForm):
+#class UsuariosForm(UserCreationForm):
 #    class Meta:
 #        model = Usuarios
 #        fields = ['nome', 'email', 'senha']
@@ -11,6 +12,12 @@ from cleanUpSite.models import Usuarios, Foruns
 #  foi comentada nas configs a linha que colocava o módulo personalizado como o principal da autenticação
 #  o arquivo da pasta backends ta inútil no momento com isso
 
+from django.contrib.auth.forms import UserChangeForm
+
+class CustomUserChangeForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields = ['username', 'email']  # Liste os campos que os usuários podem atualizar
 
 
 class CriaForum(ModelForm):

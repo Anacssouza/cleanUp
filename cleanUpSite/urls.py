@@ -15,7 +15,8 @@ urlpatterns = [
     path('tema3/', views.tema3),
     path('forum/', views.forum, name='forum'),
     path('minhaConta/', views.minhaConta, name='minhaConta'),
-    path('editar/<str:username>', views.editar, name='editar'),
+    path('editar/', views.editar, name='editar'),
+    path('deletarUsuario/<int:pk>/', views.deletarUsuario, name='deletarUsuario'),
 ]
 
 #path('criaForum/', views.criaForum, name='criaForum') -> apaguei essa rota
