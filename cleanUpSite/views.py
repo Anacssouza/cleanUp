@@ -3,7 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect,get_object_or_404
-from cleanUpSite.form import CriaForum, CustomUserChangeForm
+from cleanUpSite.form import CriaForum, CustomUserChangeForm, CustomUserCreationForm
 from cleanUpSite.models import Foruns
 from django.contrib import messages
 from django.contrib.auth import get_user
@@ -19,6 +19,7 @@ def home(request):
     return render(request, 'home.html', data)
 
 #cadastro
+
 def create(request):
  #   form = UsuariosForm(request.POST or None)
   #  if form.is_valid():
@@ -42,7 +43,24 @@ def create(request):
         user.save()
         login(request, user)
         return render(request, 'minhaConta.html')
+"""
 
+def create(request):
+    form = CustomUserCreationForm(request.POST or None)
+    if form.is_valid():
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+        user = User.objects.filter(email=email).first()
+        if user:
+            return render(request, 'home.html', {
+                'error': 'E-mail já existe'
+            })
+        user = User.objects.create_user(username=username, email=email, password=senha)
+        User.save()
+        login(request, user)
+        return render(request, 'minhaConta.html')
+"""
 #login
 def login_site(request):
 
