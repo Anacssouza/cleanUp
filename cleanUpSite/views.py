@@ -3,7 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect,get_object_or_404
-from cleanUpSite.form import CriaForum, CustomUserChangeForm, CustomUserCreationForm
+from cleanUpSite.form import CustomUserChangeForm, CustomUserCreationForm
 from cleanUpSite.models import Foruns
 from django.contrib import messages
 from django.contrib.auth import get_user
@@ -123,30 +123,7 @@ def criaForum(request):
     data['form'] = CriaForum()
     return render(request, 'criaForum.html', data)"""
 
-@login_required(login_url="home")
-def forum(request):
-    data = {}
-    if request.method == 'POST':
-        # Se o formulário for submetido, lide com a criação do fórum aqui
-        form = CriaForum(request.POST)
-        if form.is_valid():
-            # Processar e salvar os dados do formulário, por exemplo:
-            # novo_forum = form.save(commit=False)
-            # novo_forum.save()
-            # Redirecione para a página de fórum ou faça outra ação após criar o tópico.
-            return redirect('forum')
-    else:
-        # Se for uma solicitação GET, mostre a página do fórum com o formulário de criação
-        data['db'] = Foruns.objects.all()
-        data['form'] = CriaForum()
 
-    return render(request, 'forum.html', data)
-
-def criaF(request):
-    form = CriaForum(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('forum')
 
 @login_required(login_url="home")
 def minhaConta(request):

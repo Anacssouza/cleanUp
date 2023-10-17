@@ -39,8 +39,5 @@ class CustomUserChangeForm(UserChangeForm):
         fields = ['username', 'email']  # Liste os campos que os usuários podem atualizar
 
 
-class CriaForum(ModelForm):
-    class Meta:
-        model = Foruns
-        fields = ['titulo', 'descricao']
+
 
