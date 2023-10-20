@@ -1,6 +1,6 @@
 {% load static %}
 
-
+/*
 :root {
 	--index: calc(1vw + 1vh);
 	--text: #e7e7e0;
@@ -52,7 +52,7 @@ h1 {
     transform-style: preserve-3d;
 }
 
-/* parallax */
+/* parallax
 
 body {
 	background-color: #010101;
@@ -122,7 +122,7 @@ body {
 	font-size: calc(var(--index) / 1.175);
 	letter-spacing: calc(var(--index) / 3.5);
 	margin-top: calc(var(--index) * -.75);
-}*/
+}
 .main-article {
 	--main-article-transform: translate3d(0, calc(var(--scrollTop) / -7.5), 0);
 	min-height: 100vh;
@@ -133,7 +133,7 @@ body {
 	align-items: center;
 	position: relative;
 	text-align: center;
-	/* Update: */
+	/* Update:
 	z-index: -1;
 	color: #000000;
 	filter: blur;
@@ -147,8 +147,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(rgba(96,94,64, 0.5), rgba(255, 255, 255, 0.2)); /* Gradiente de transparência */
-  pointer-events: none; /* Permite interação com a imagem subjacente */
+  background-image: linear-gradient(rgba(96,94,64, 0.5), rgba(255, 255, 255, 0.2)); /* Gradiente de transparência
+  pointer-events: none; /* Permite interação com a imagem subjacente
 }
 
 .main-article_header {
@@ -158,7 +158,7 @@ body {
 
 	/*transform: var(--main-article-transform);
 	transition: var(--transition);
-	will-change: transform; */
+	will-change: transform;
 }
 .main-article_paragraph {
 	max-width: calc(var(--index) * 20);
@@ -166,7 +166,7 @@ body {
 	margin-top: calc(var(--index) / 1.25);
 /*	transform: var(--main-article-transform);
 	transition: var(--transition);
-	will-change: transform;*/
+	will-change: transform;
 }
 .main-article_content {
 	margin-right: 15em;
@@ -174,3 +174,129 @@ body {
 }
 
 /* folhas */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-family: 'Oswald', sans-serif;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+
+}
+
+.blocoHero h1 {
+
+    font-weight: 500;
+    font-size: 10rem;
+    color: #FEFAE0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.blocoHero p {
+    font-weight: 300;
+    margin-top: -25px;
+    font-size: 3rem;
+   /* color: #80809D; */
+    color: #99ac5d;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+   /* color: #283618;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #FEFAE0;
+    */
+}
+
+.btn.heroBotao {
+    background: #99ac5d;
+    border: none;
+    border-radius: 20px;
+    width: 6rem;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #FEFAE0;
+}
+
+.conteudo {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.textoCaixaConteudo {
+    width: 50rem;
+    height: 100vh;
+    background: rgba(217, 217, 217, 0.50);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10rem;
+}
+
+.textoCaixaConteudo h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5rem;
+    color: #99ac5d;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.45);
+}
+
+.textoCaixaConteudo p {
+    font-size: 1.7rem;
+}
+
+.conteudoDesmatamento {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position:relative;
+}
+
+.textoCaixaConteudoDesm,.textoCaixaConteudoDesm2 {
+    width: 40rem;
+    height: 30rem;
+    background: rgba(217, 217, 217, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 70px;
+    border-radius: 20px;
+    color: #FEFAE0;
+}
+
+.textoCaixaConteudoDesm h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3.5rem;
+}
+
+.conteudoDesmatamento2 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.textoCaixaConteudoDesm2 {
+    margin-right: 0;
+}
+.conteudoDesmatamento2 svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
