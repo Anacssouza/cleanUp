@@ -1,7 +1,7 @@
 {% load static %}
 
 body {
-    background: #ffffff;
+   background:#447552;
     color: white;
 }
 
@@ -17,12 +17,11 @@ body {
     min-width: 192px;
 }
 
-.title {
-    margin-top: 100px;
-}
-
 .breadcrumb, .teste {
     width: 30em;
+    margin-top: 5.5rem;
+    margin-bottom: 5.5rem;
+
 }
 
 textarea {
@@ -62,4 +61,129 @@ form .pesquisaForum {
 
 form span {
     width: 30px;
+}
+
+nav.meubreadcrumb {
+    position: absolute;
+    top: 5rem;
+    left: 3.5rem;
+    width: 50%;
+}
+
+.bread {
+    list-style: none;
+    display:flex;
+    flex-direction: row;
+    color: white;
+}
+
+.bread li {
+    margin-right: 1rem;
+}
+
+.bread .atual {
+    color: #606c38
+}
+
+.bread a{
+    text-decoration: none;
+    color: white;
+}
+
+.bread a:hover{
+    color: #606c38;
+}
+
+.backgroundtopo {
+    background: grey;
+}
+
+.pesquisa {
+    margin-top: 8rem;
+}
+
+.tituloECriacao {
+    margin-top: 2.5rem;
+}
+
+.adicionaForum {
+    margin-top: 1rem;
+    margin-bottom: 3.5rem;
+
+}
+
+div.topicos {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 20vh;
+    background:red;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.fotoPerfil{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.postagem {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.iconesAcoes {
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconesAcoes img {
+    width: 3.5rem;
+}
+
+div.foto {
+    margin-top: 1.2rem;
+    width: 5rem; /* Defina a largura do círculo */
+    height: 5rem; /* Defina a altura do círculo (igual à largura) */
+    background-color: #ffffff; /* Cor de fundo do círculo */
+    border-radius: 50%;
+}
+
+footer {
+    margin-top: 40px;
+}
+
+.topicosbd {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 20vh;
+    background:grey;
+    border-radius: 20px;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+img.iconLixo {
+    width: 2.7rem;
+    margin: 1rem;
+}
+
+img.iconEditar {
+    width: 2.95rem;
+}
+
+.postagem div.tituloData {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }

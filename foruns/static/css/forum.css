@@ -1,8 +1,64 @@
-{% load static %}
+
+* {
+    font-family: 'Oswald', sans-serif;
+}
 
 body {
     background: #ffffff;
     color: white;
+}
+
+.teste {
+    width: 50%;
+    height: 100vh;
+}
+
+.pesquisa {
+    border-radius: 20px;
+}
+
+.tituloECriacao {
+    margin-top: 10rem;
+}
+
+button.adicionaForum {
+    max-width: 50px;
+    padding: 1.2rem;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    font-family: 'Oswald';
+}
+
+nav.meubreadcrumb {
+    position: absolute;
+    top: 5rem;
+    left: 3.5rem;
+    width: 50%;
+}
+
+.bread {
+    list-style: none;
+    display:flex;
+    flex-direction: row;
+    color: white;
+}
+
+.bread li {
+    margin-right: 1rem;
+}
+
+.bread .atual {
+    color: #606c38
+}
+
+.bread a{
+    text-decoration: none;
+    color: white;
+}
+
+.bread a:hover{
+    color: #606c38;
 }
 
 .category {
@@ -54,12 +110,20 @@ input[type="text"] {
     border: 1px solid;
 }
 
-form .pesquisaForum {
+form input.pesquisaForum {
     width: 400px;
     margin: 20px 0;
     border: 1px solid #808080;
+    border-radius: 40px;
 }
 
 form span {
     width: 30px;
+}
+
+
+
+
+.pesquisa {
+    max-width: 100px;
 }

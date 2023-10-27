@@ -1,5 +1,9 @@
+from django.utils import timezone
+
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, User
+
+
 
 class Usuarios(models.Model):
     id_usuario = models.AutoField(primary_key=True)
@@ -48,10 +52,11 @@ class Foruns(models.Model):
     id_foruns = models.AutoField(primary_key=True)
     titulo = models.CharField(max_length=50)
     descricao = models.CharField(max_length=1000)
+    fields = '__all__'
 
 class UserFor(models.Model):
     id_foruns = models.ForeignKey(Foruns, on_delete=models.CASCADE)
-    id_usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     id_userfor = models.AutoField(primary_key=True)
     data_participacao = models.DateTimeField()
 

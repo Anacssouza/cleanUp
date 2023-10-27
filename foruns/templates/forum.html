@@ -7,21 +7,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Forum </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.2/css/all.min.css" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="{% static '/css/forum.css' %}">
-    <link rel="stylesheet" href="{% static '/css/reset.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;500;600&display=swap" rel="stylesheet">
 </head>
-  <body style='background:#87CEFA'>
+  <body >
     {% include '_cabecalho.html' %}
-    <div class="d-flex flex-column title">
+
+
+     <div class="d-flex flex-column title">
+         <div class="backgroundtopo">
+             <nav class="meubreadcrumb">
+                  <ol class="bread" >
+                    <li><a href="/desmatamento/"> Home </a></li>
+                    <li> > </li>
+                    <li class="atual"> Forum Desmatamento </li>
+                  </ol>
+            </nav>
+             <div class="container-fluid teste">
+                <form class="d-flex" role="search">
+                  <input class="form-control pesquisa"  style="border-radius: 20px" type="search" placeholder="Procure por alguma palavra chave" aria-label="Search">
+                </form>
+              </div>
+         </div>
+           <div class="tituloECriacao">
+            <h1 class="text-center"> Forum </h1>
+          </div>
+
+         <div class="d-flex justify-content-center flex-column align-items-center justify-content-center">
+            <div>
+               <a type="button" style="font-size: 0.9rem" class="btn btn-primary px-4 rounded-4 bg-light text-black fw-semibold border-white adicionaForum" data-bs-toggle="modal" data-bs-target="#ModalCria">
+                 CRIAR TÓPICO
+               </a>
+            </div>
+            <div class="modal fade" id="ModalCria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header d-flex flex-column">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h2 class="text-center text-primary-emphasis"> Criação de tópico </h2>
+                  </div>
+                  <div class="modal-body">
+                     <div class="form-box register d-flex flex-column text-primary-emphasis">
+                      <div class="d-flex justify-content-center">
+                          <form name="form" id="form" method="post" action="/criaF/">
+                              {% csrf_token %}
+                               <div class="input-box w-100 d-flex flex-column">
+                                   <label> Título </label>
+                                   {{ form.titulo }}
+                              </div>
+                              <div class="input-box w-100 textarea d-flex flex-column">
+                                  <label> Descrição </label>
+                                  {{ form.descricao.as_textarea }}
+                              </div>
+                              <div class="d-flex justify-content-center botoesForum">
+                                  <a class="btn btn-dark" href="/forum"> voltar </a>
+                                  <input type="submit" class="btn btn-success" value="Salvar">
+                              </div>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <a type="button" class="btn btn-outline-success p-2 w-10" href="/criaForum"> Adicionar </a>
+            </div>
+        </div>
+         <div class="topicos">
+             <div class="fotoPerfil">
+                 <div class="foto"></div>
+                 <p> @ADM </p>
+             </div>
+             <div class="postagem">
+                 <h3 class="tituloTopico"> Título do tópico principal </h3>
+                 <p class="textoTopico"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec diam ipsum. Nullam dignissim quis ligula ac molestie. Duis feugiat convallis erat feugiat convallis. Cras viverra maximus diam id eleifend. Fusce mattis, nisi sit amet tincidunt fringilla, erat urna lobortis mauris, id gravida augue nisi vitae nisi. </p>
+             </div>
+             <div class="iconesAcoes">
+                 <img src="{% static '/img/pin.png' %}">
+             </div>
+         </div>
+
+{% for db in db %}
+         <div class="topicosbd">
+             <div class="fotoPerfil">
+                 <div class="foto"></div>
+
+                    <p> @ {{user.username}}  </p>
+
+             </div>
+             <div class="postagem">
+                 <div class="tituloData">
+                    <h3 class="tituloTopico"> {{db.titulo}} </h3>
+                     <p> {{ db.}} </p>
+                 </div>
+                 <p class="textoTopico"> {{db.descricao}} </p>
+             </div>
+             <div class="iconesAcoes">
+                 <img class="iconEditar" src="{% static '/img/edit_.svg' %}">
+                 <img class="iconLixo" src="{% static '/img/lixo.svg' %}">
+             </div>
+         </div>
+         {% endfor %}
+
+
+
+    </div>
+
+    {% include 'footer.html' %}
+
+
+    <!--   <div class="d-flex flex-column title">
       <div>
         <h1 class="text-center"> Forum </h1>
       </div>
-    <div class="d-flex justify-content-center">
-       <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalCria">
-         Adicionar
-       </a>
+    <div class="d-flex justify-content-center flex-column">
+        <div>
+           <a type="button" class="btn btn-primary adicionaForum" data-bs-toggle="modal" data-bs-target="#ModalCria">
+             Adicionar
+           </a>
+        </div>
+        <div class="pesquisa">
 
-        <!-- Modal -->
+        </div>
+         Modal
         <div class="modal fade" id="ModalCria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
             <div class="modal-content">
@@ -63,12 +175,15 @@
       </nav>
 
     <form class="align-items-center">
+        <form class="d-flex" role="search">
+                <input type="text" class="pesquisaForum" id="inlineFormInputGroupUsername" placeholder="Pesquise sobre algum tópico">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
         <span> <ion-icon name="search"></ion-icon> </span>
        <input type="text" class="pesquisaForum" id="inlineFormInputGroupUsername" placeholder="Pesquise sobre algum tópico">
     </form>
 
-
-      <!-- categoria -->
+    categoria
       <div class="row">
         <div class="col-12 col-xl-12">
           <h2 class="h4 category mb-0 p-4 rounded-top text-light"> Categoria </h2>
@@ -92,12 +207,12 @@
                     <div> 9 </div>
                   </td>
                   <td>
-                    <!-- Button trigger modal -->
+                    Button trigger modal
                     <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                       Ver comentários
                     </a>
 
-                    <!-- Modal -->
+                    Modal
                     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-xl">
                         <div class="modal-content">
@@ -130,7 +245,7 @@
         <div>
         </div>
 
-    <!--    <div class="col-12 col-xl-3">
+       <div class="col-12 col-xl-3">
           <aside>
             <div class="row">
               <div class="col-12 col-sm-6 col-xl-12">
