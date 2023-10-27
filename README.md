@@ -20,5 +20,5 @@ Ainda em desenvolvimento
 ##
 
 <p align="center">
-  Feito com 💙 by Ana Souza
+  Feito com 💙 
 </p>
