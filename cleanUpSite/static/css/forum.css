@@ -145,7 +145,7 @@ div.topicos {
 }
 
 .iconesAcoes img {
-    width: 3.5rem;
+    width: 3rem;
 }
 
 div.foto {
@@ -186,4 +186,13 @@ img.iconEditar {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+img.iconCitar {
+    width: 2.9rem;
+}
+
+img.iconReportar {
+    margin: 1rem;
+    width: 3.5rem;
 }

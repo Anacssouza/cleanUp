@@ -19,7 +19,7 @@ class CriaForum(forms.Form):
         novo_forum = Foruns(titulo=self.cleaned_data['titulo'], descricao=self.cleaned_data['descricao'])
         novo_forum.save()
         tz = pytz.timezone('America/Sao_Paulo')
-        user_for = UserFor(user=user, data_participacao=timezone.now(), id_foruns_id=novo_forum)
+        user_for = UserFor(user=user, data_participacao=timezone.now(), id_foruns_id=novo_forum.id_foruns)
         user_for.save()
 
 # Em sua view

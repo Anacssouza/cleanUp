@@ -77,6 +77,9 @@
               <a type="button" class="btn btn-outline-success p-2 w-10" href="/criaForum"> Adicionar </a>
             </div>
         </div>
+
+
+
          <div class="topicos">
              <div class="fotoPerfil">
                  <div class="foto"></div>
@@ -96,26 +99,96 @@
              <div class="fotoPerfil">
                  <div class="foto"></div>
 
-                    <p> @ {{user.username}}  </p>
+                    <p> @{{db.author_name}}  </p>
 
              </div>
              <div class="postagem">
                  <div class="tituloData">
                     <h3 class="tituloTopico"> {{db.titulo}} </h3>
-                     <p> {{ db.}} </p>
+                     <p> {{db.data_participacao}} </p>
                  </div>
                  <p class="textoTopico"> {{db.descricao}} </p>
              </div>
-             <div class="iconesAcoes">
-                 <img class="iconEditar" src="{% static '/img/edit_.svg' %}">
-                 <img class="iconLixo" src="{% static '/img/lixo.svg' %}">
-             </div>
+             {% if user.username == db.author_name %}
+                 <div class="iconesAcoes">
+                     <button class="btn bg-transparent " type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal2{{ db.id_foruns }}"> <img class="iconEditar" src="{% static '/img/edit_.svg' %}"></button>
+                     <button class="btn bg-transparent " data-bs-toggle="modal" data-bs-target="#exampleModal{{ db.id_foruns }}"> <img class="iconLixo" src="{% static '/img/lixo.svg' %}"> </button>
+
+                 </div>
+                 <div class="modal fade text-black" id="exampleModal{{db.id_foruns}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Excluir meu tópico</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                              <div class="modal-body">
+                                Esta ação não pode ser desfeita, você tem certeza que deseja excluir o tópico {{db.titulo}}?
+                              </div>
+                          <div class="modal-footer botoesAcoes">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"> Voltar </button>
+                            <a type="button" href="{% url 'excluiF' db.id_foruns %}" class="btn btn-danger ExcluirConta"> Excluir </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal fade" id="exampleModal2{{ db.id_foruns }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                            <div class="modal-content">
+                              <div class="modal-header d-flex flex-column">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <h2 class="text-center text-primary-emphasis"> Edição de tópico </h2>
+                              </div>
+                              <div class="modal-body">
+                                 <div class="form-box register d-flex flex-column text-primary-emphasis">
+                                  <div class="d-flex justify-content-center">
+                                      <form name="form" id="form2" method="post" action="{% url 'editarF' db.id_foruns %}">
+                                          {% csrf_token %}
+                                           <div class="input-box w-100 d-flex flex-column">
+                                               <label> Título </label>
+                                               {{ form.titulo }}
+                                          </div>
+                                          <div class="input-box w-100 textarea d-flex flex-column">
+                                              <label> Descrição </label>
+                                              {{ form.descricao.as_textarea }}
+                                          </div>
+                                          <div class="d-flex justify-content-center botoesForum">
+                                              <a class="btn btn-dark" href="/forum"> voltar </a>
+                                              <input type="submit" class="btn btn-success" value="Salvar">
+                                          </div>
+                                      </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+
+
+
+             {% else %}
+                <div class="iconesAcoes">
+                     <img class="iconCitar" src="{% static '/img/citar.svg' %}">
+                     <img class="iconReportar" src="{% static '/img/reportar.svg' %}">
+                 </div>
+             {% endif %}
          </div>
          {% endfor %}
 
 
 
     </div>
+
+#paginacao
+<div class="pagination">
+    {% if pg.has_previous %}
+        <a href="?page={{ pg.previous_page_number }}">Anterior</a>
+    {% endif %}
+    {{ pg.number }} de {{ pg.paginator.num_pages }}
+    {% if pg.has_next %}
+        <a href="?page={{ pg.next_page_number }}">Próxima</a>
+    {% endif %}
+</div>
 
     {% include 'footer.html' %}
 

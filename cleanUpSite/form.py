@@ -1,6 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.forms import ModelForm
-from cleanUpSite.models import Usuarios, Foruns
+from cleanUpSite.models import Usuarios, Foruns, CustomUser
 from django.contrib.auth.models import User
 
 #class UsuariosForm(UserCreationForm):
@@ -38,6 +38,9 @@ class CustomUserChangeForm(UserChangeForm):
         model = User
         fields = ['username', 'email']  # Liste os campos que os usuários podem atualizar
 
-
+class foto(forms.ModelForm):
+    class Meta:
+        model = CustomUser  # Vincule o formulário ao modelo CustomUser
+        fields = ['profile_picture']
 
 

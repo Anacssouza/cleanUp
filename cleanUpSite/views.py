@@ -3,7 +3,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect,get_object_or_404
-from cleanUpSite.form import CustomUserChangeForm, CustomUserCreationForm
+from cleanUpSite.form import CustomUserChangeForm, CustomUserCreationForm, foto
 from cleanUpSite.models import Foruns
 from django.contrib import messages
 from django.contrib.auth import get_user
@@ -124,6 +124,16 @@ def criaForum(request):
     return render(request, 'criaForum.html', data)"""
 
 
+def upload_profile_picture(request):
+    if request.method == 'POST':
+        form = foto(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('página_de_sucesso')
+    else:
+        form = foto()
+
+    return render(request, 'minhaConta.html', {'form': form})
 
 @login_required(login_url="home")
 def minhaConta(request):

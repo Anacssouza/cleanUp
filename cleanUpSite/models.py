@@ -1,10 +1,12 @@
 from django.utils import timezone
 
 from django.db import models
-from django.contrib.auth.models import AbstractUser, User
-
-
-
+from django.contrib.auth.models import AbstractUser, User,Group, Permission
+class CustomUser(AbstractUser):
+    # Outros campos do usuário
+    profile_picture = models.ImageField(upload_to='static/profile_pictures/', null=True, blank=True)
+    groups = models.ManyToManyField(Group, related_name='custom_users')
+    user_permissions = models.ManyToManyField(Permission, related_name='custom_users_permissions')
 class Usuarios(models.Model):
     id_usuario = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=50)

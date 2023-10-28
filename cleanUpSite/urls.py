@@ -15,6 +15,8 @@ urlpatterns = [
     path('minhaConta/', views.minhaConta, name='minhaConta'),
     path('editar/', views.editar, name='editar'),
     path('deletarUsuario/<int:pk>/', views.deletarUsuario, name='deletarUsuario'),
+    path('foto/', views.upload_profile_picture, name='upload_profile_picture'),
+
 ]
 
 #path('criaForum/', views.criaForum, name='criaForum') -> apaguei essa rota
