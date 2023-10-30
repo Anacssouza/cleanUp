@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Alterar senha</title>
+</head>
+<body>
+
+
+    {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> CleanUp - Minha Conta </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/minhaConta.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body class="body">
+    {% include '_cabecalho.html' %}
+
+
+<div class="container">
+    <div class=" col-11 m-auto infos align-items-center" >
+        <nav class="meubreadcrumb">
+          <ol class="bread" >
+            <li><a href="/desmatamento/"> Home </a></li>
+            <li> > </li>
+            <li class="atual"> Minha Conta </li>
+          </ol>
+        </nav>
+
+        <!--modal update-->
+
+        <div class="col-5 mx-auto pb-2 info mt-5" id="InfoUpdate" style="height: 87vh;">
+            <div class="col mx-6 infoInicial text-center">
+                <div class="mx-auto">
+                    <h2 class="text-center"> Alteração de senha </h2>
+                </div>
+            </div>
+            <div>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="col-10 mx-auto p-3 Informationminhaconta" style="height: fit-content;">
+                        <div class="nome nomeform">
+                            <label>Senha antiga: </label>
+                            {{form_senha.old_password}}
+                            {{form_senha.old_password.errors}}
+                        </div>
+
+                        <div class="email emailform">
+                            <label>Nova senha: </label>
+                            {{form_senha.new_password1}}
+                            {{form_senha.new_password1.errors}}
+                        </div>
+
+                        <div class="email emailform">
+                            <label>Confirmação de senha: </label>
+                            {{form_senha.new_password2}}
+                            {{form_senha.new_password2.errors}}
+                        </div>
+                    </div>
+
+                    <div class="col-10 mx-auto p-3 Acoes">
+                        <div class="AEs">
+                          <h2 > Ações </h2>
+                          <div class="botoesAcoes mx-auto">
+                            <input type="submit" class="btn btn-success" value="Salvar Dados">
+                            <a  href="/minhaConta/" class="btn btn-dark"> Voltar </a>
+
+                          </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+    <script src="{% static 'js/minhaConta.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+</body>
+</html>

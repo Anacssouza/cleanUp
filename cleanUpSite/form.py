@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
 from django.forms import ModelForm
 from cleanUpSite.models import Usuarios, Foruns, CustomUser
@@ -42,5 +43,4 @@ class foto(forms.ModelForm):
     class Meta:
         model = CustomUser  # Vincule o formulário ao modelo CustomUser
         fields = ['profile_picture']
-
 

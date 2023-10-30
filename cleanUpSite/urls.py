@@ -16,6 +16,7 @@ urlpatterns = [
     path('editar/', views.editar, name='editar'),
     path('deletarUsuario/<int:pk>/', views.deletarUsuario, name='deletarUsuario'),
     path('foto/', views.upload_profile_picture, name='upload_profile_picture'),
+    path('editar/alterar_senha/', views.alterar_senha, name='alterar_senha'),
 
 ]
 

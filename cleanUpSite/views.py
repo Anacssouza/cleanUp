@@ -1,5 +1,6 @@
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
+from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect,get_object_or_404
@@ -7,6 +8,7 @@ from cleanUpSite.form import CustomUserChangeForm, CustomUserCreationForm, foto
 from cleanUpSite.models import Foruns
 from django.contrib import messages
 from django.contrib.auth import get_user
+
 def inicial(request):
     return render(request, 'inicial.html')
 
@@ -32,12 +34,15 @@ def create(request):
         email = request.POST.get('email')
         senha = request.POST.get('senha')
 
+
+
         user = User.objects.filter(email=email).first()
 
         if user:
             return render(request, 'home.html', {
                 'error': 'E-mail já existe'
             })
+
 
         user = User.objects.create_user(username=username, email=email, password=senha)
         user.save()
@@ -164,3 +169,16 @@ def deletarUsuario(request, pk):
         # Trate o caso em que o usuário não existe
         pass
     return redirect('home')
+
+@login_required
+def alterar_senha(request):
+    if request.method == "POST":
+        form_senha = PasswordChangeForm(request.user, request.POST)
+        if form_senha.is_valid():
+            user = form_senha.save()
+            update_session_auth_hash(request, user)
+            return redirect('minhaConta')
+    else:
+        form_senha = PasswordChangeForm(request.user)
+    return render(request, 'alterar_senha.html', {'form_senha': form_senha})
+
