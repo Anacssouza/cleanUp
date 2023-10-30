@@ -34,7 +34,10 @@ def create(request):
         email = request.POST.get('email')
         senha = request.POST.get('senha')
 
-
+        if len(senha) < 8:
+            return render(request, 'home.html', {
+                'error': 'A senha deve ter pelo menos 8 caracteres'
+            })
 
         user = User.objects.filter(email=email).first()
 
