@@ -158,6 +158,7 @@ def editar(request):
         form = CustomUserChangeForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
+
             # Redirecione para a página de perfil ou outra página após a atualização
     else:
         form = CustomUserChangeForm(instance=request.user)
@@ -185,3 +186,5 @@ def alterar_senha(request):
         form_senha = PasswordChangeForm(request.user)
     return render(request, 'alterar_senha.html', {'form_senha': form_senha})
 
+def contato(request):
+    return render(request, 'contato.html')
