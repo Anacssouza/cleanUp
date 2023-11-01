@@ -3,6 +3,9 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+handler404 = 'cleanUpSite.views.custom_404_page'
+handler500 = 'cleanUpSite.views.custom_500_page'
+
 urlpatterns = [
     path('', views.home, name='home'),
     path('inicial/', views.inicial, name='inicial'),
@@ -22,3 +25,4 @@ urlpatterns = [
 ]
 
 #path('criaForum/', views.criaForum, name='criaForum') -> apaguei essa rota
+

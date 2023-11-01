@@ -8,6 +8,7 @@ from cleanUpSite.form import CustomUserChangeForm, CustomUserCreationForm, foto
 from cleanUpSite.models import Foruns
 from django.contrib import messages
 from django.contrib.auth import get_user
+#from cleanUpSite.urls import handler404
 
 def inicial(request):
     return render(request, 'inicial.html')
@@ -188,3 +189,10 @@ def alterar_senha(request):
 
 def contato(request):
     return render(request, 'contato.html')
+
+
+def custom_404_page(request, exception):
+    return render(request, '404.html', status=404)
+
+def custom_500_page(request):
+    return render(request, '500.html', status=500)
