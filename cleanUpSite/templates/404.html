@@ -1,10 +1,29 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title> Erro 404 </title>
+    <link rel="stylesheet" href="{% static '/css/pag404.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1> Erro 404 </h1>
+    <div class="main">
+        <div class='imgEtexto'>
+            <img src="{% static '/img/imagem404.png' %}" alt="">
+            <p>
+                Parece que alguém se perdeu.
+            </p>
+            <p>
+                Retorne a <a href="/"> Home </a>  para recomeçar a sua procura de lá.
+            </p>
+        </div>
+        <div class="dino">
+            <img src="{% static '/img/dino.svg'%}" alt="">
+        </div>
+    </div>
 </body>
 </html>

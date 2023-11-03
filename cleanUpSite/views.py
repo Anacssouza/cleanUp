@@ -196,3 +196,6 @@ def custom_404_page(request, exception):
 
 def custom_500_page(request):
     return render(request, '500.html', status=500)
+
+def teste404(request):
+    return render(request, '404.html')

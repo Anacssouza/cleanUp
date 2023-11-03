@@ -5,9 +5,68 @@
 <head>
     <meta charset="UTF-8">
     <title> Contato </title>
-    <<link rel="stylesheet" type="text/css" href="{% static '/css/contato.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/contato.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     {% include '_cabecalho.html' %}
+
+    <main>
+        <nav class="meubreadcrumb">
+          <ol class="bread" >
+            <li><a href="/desmatamento/"> Home </a></li>
+            <li> > </li>
+            <li class="atual"> Contato </li>
+          </ol>
+        </nav>
+
+        <div class="sobre">
+            <h1> Título pag contato </h1>
+            <div class="sobreTextoImagem">
+                <div>
+                    <h2> Texto texto texto </h2>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras felis est, ultricies et faucibus quis, elementum eget justo. Proin tincidunt hendrerit arcu, nec laoreet sem commodo et. Phasellus dignissim arcu lorem, in mattis leo porta vel. Ut rhoncus aliquam porttitor. Mauris hendrerit tellus at odio blandit facilisis.  </p>
+                </div>
+                <div class="imgContato" >
+                        <img src="{% static '/img/contato.png' %}" alt="">
+                </div>
+
+            </div>
+            <div class="flecha">
+                <img src="{% static '/img/setaBaixo.png' %}" alt="">
+            </div>
+        </div>
+
+        <div class="formulario">
+            <h2> Título form </h2>
+            <form action="">
+                <div>
+                    <label for="nome" class="form-label"> Nome </label>
+                    <input class="form-control" type="text" name="nome" id="nome">
+                </div>
+                <div>
+                    <label for="email" class="form-label"> Email </label>
+                    <input class="form-control" type="email" name="email" id="email">
+                </div>
+                <div>
+                    <label for="texto" class="form-label"> Mensagem </label>
+                    <textarea class="form-control" name="texto" id="texto" cols="30" rows="5"></textarea>
+                </div>
+                <div class="botao">
+                    <input class="btn btn-success" type="submit" value="Mandar">
+                </div>
+            </form>
+        </div>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

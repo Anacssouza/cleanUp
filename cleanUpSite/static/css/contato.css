@@ -1,3 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     background-color: black;
+    font-family: 'Oswald';
+    color: white;
+}
+
+main {
+    margin-top: 3rem;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.sobre {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sobre .sobreTextoImagem {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sobre .sobreTextoImagem p {
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
+.sobre .sobreTextoImagem h2, .formulario h2 {
+    font-size: 2.5rem;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.formulario form {
+    width: 50%;
+}
+
+.formulario div {
+    margin-top: 1rem;
+}
+
+.formulario div.botao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icone ion-icon {
+    width: 20rem;
+}
+
+
+nav.meubreadcrumb {
+    position: absolute;
+    top: 5rem;
+    left: 3.5rem;
+    width: 50%;
+}
+
+.bread {
+    list-style: none;
+    display:flex;
+    flex-direction: row;
+    color: white;
+}
+
+.bread li {
+    margin-right: 1rem;
+}
+
+.bread .atual {
+    color: #606c38
+}
+
+.bread a{
+    text-decoration: none;
+    color: white;
+}
+
+.bread a:hover{
+    color: #606c38;
+}
+
+@media screen and (max-width: 500px) {
+
+    main {
+        margin-top: 15rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .sobre .sobreTextoImagem {
+        width: 100%;
+        text-align: center;
+        flex-direction: column-reverse;
+    }
+
+    .sobre .sobreTextoImagem p {
+        font-size: 1rem;
+    }
+
+    .sobre .sobreTextoImagem h2,.formulario h2 {
+        font-size: 1.8rem;
+    }
+
+    .sobre .sobreTextoImagem div {
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+    }
+
+    .sobre .sobreTextoImagem img {
+        width: 20rem;
+    }
+
+    .sobre .flecha img{
+         width: 5rem;
+         margin-top: 5rem;
+    }
+
+    .formulario {
+        height: 70vh;
+
+    }
+
+    footer {
+        text-align: center;
+        color: white;
+    }
+
 }

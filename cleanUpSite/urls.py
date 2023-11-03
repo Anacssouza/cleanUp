@@ -3,6 +3,8 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+
+
 handler404 = 'cleanUpSite.views.custom_404_page'
 handler500 = 'cleanUpSite.views.custom_500_page'
 
@@ -21,6 +23,7 @@ urlpatterns = [
     path('foto/', views.upload_profile_picture, name='upload_profile_picture'),
     path('editar/alterar_senha/', views.alterar_senha, name='alterar_senha'),
     path('contato/', views.contato, name='contato'),
+    path('teste404/', views.teste404, name='teste404'),
 
 ]
 

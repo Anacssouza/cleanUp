@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #B3B3B3;
+    font-family: 'Oswald';
+    font-weight: 400;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.imgEtexto {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-right: -5.7rem;
+}
+
+.imgEtexto a {
+    color: #7FA429;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.imgEtexto a:hover {
+    color: green;
+}
+
+.imgEtexto p {
+    margin-top: -1rem;
+}
+
+.imgEtexto img {
+    width: 45rem;
+}
+
+.dino img {
+     width: 40rem;
+}
