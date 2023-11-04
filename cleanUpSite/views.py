@@ -194,16 +194,6 @@ def alterar_senha(request):
 def contato(request):
     return render(request, 'contato.html')
 
-
-def custom_404_page(request, exception):
-    return render(request, '404.html', status=404)
-
-def custom_500_page(request):
-    return render(request, '500.html', status=500)
-
-def teste404(request):
-    return render(request, '404.html')
-
 def enviaemail (request):
     nome = request.POST.get('name')
     email = request.POST.get('email')
@@ -219,6 +209,16 @@ def enviaemail (request):
     email.attach_alternative(html_content, 'text/html')
     email.send()
 
-   # send_mail('CleanUp - Chegou uma mensagem de contato', texto, f'{email}',
-    #          recipient_list=['anacsilveirasouza@gmail.com'])
     return redirect('home')
+
+def custom_404_page(request, exception):
+    return render(request, '404.html', status=404)
+
+def custom_500_page(request):
+    return render(request, '500.html', status=500)
+
+def teste404(request):
+    return render(request, '404.html')
+
+def conteudos(request):
+    return render(request, 'conteudos.html')

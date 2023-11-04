@@ -7,23 +7,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Clean Up </title>
+    <title> CleanUp </title>
     <link rel="stylesheet" type="text/css" href="{% static '/css/_cabecalho.css' %}">
+    <link rel="shortcut icon" href="{% static '/img/favicon.png' %}" type="image/x-icon">
 </head>
 <body>
 
 
     <header class="header">
-        <img class="logo" style="width:10rem; margin-top:-1rem;" src="{% static 'img/logo.png' %}" alt="">
+        <img class="logo" style="width:8rem;" src="{% static 'img/logo.png' %}" alt="">
         <button class="hamburguer"> </button>
         <nav class="navigation"> <!--nav-->
             {% if user.is_authenticated %}
                 <ul>
                     <li class="nav">  <!--navlist-->
-                        <a href="/" > Home </a>
+                        <a href="/desmatamento" > Home </a>
                     </li>
                     <li class="nav">
-                        <a> Conteúdos </a>
+                        <a href="/conteudos"> Conteúdos </a>
                     </li>
                     <li class="nav">
                         <a href="/contato" > Contato </a>

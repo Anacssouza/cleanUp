@@ -25,6 +25,7 @@ urlpatterns = [
     path('contato/', views.contato, name='contato'),
     path('teste404/', views.teste404, name='teste404'),
     path('enviaemail/', views.enviaemail, name='enviaemail'),
+    path('conteudos/', views.conteudos, name='conteudos'),
 
 
 
