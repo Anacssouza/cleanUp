@@ -12,10 +12,15 @@ header {
     z-index: 1;
 }
 
+
 .logo {
     font-size: 2rem;
     color: #FFFFFF;
     user-select: none;
+}
+
+.navigation {
+    max-width: 1280px;
 }
 
 .navigation a {
@@ -253,10 +258,9 @@ header {
     z-index: 1;
 }
 
-.logo {
-    font-size: 2rem;
+img.logo {
+    width: 3rem;
     color: #FFFFFF;
-    user-select: none;
 }
 
 header .navigation ul {
@@ -304,6 +308,7 @@ nav ul li.nav a{
     color: #FFFFFF;
 }
 
+
 .nav a::after {
     content: '';
     position: absolute;
@@ -335,4 +340,60 @@ nav ul li.nav a{
 .navigation a:hover::after{
     transform-origin: left;
     transform: scaleX(1);
+}
+
+.hamburguer {
+    display: none;
+    border: none;
+    background: none;
+    border-top: 3px solid #ffffff;
+    cursor: pointer;
+}
+
+.hamburguer::before, .hamburguer::after {
+    content: ' ';
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #ffffff;
+    margin-top: 5px;
+}
+
+@media (max-width: 750px){
+    .hamburguer {
+        display: block;
+        z-index: 1;
+        right: -2px;
+    }
+
+    nav.navigation ul {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: green;
+        clip-path: circle(100px at 90% -15%);
+        transition: 1s ease-out;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0;
+        pointer-events: none;
+    }
+
+    nav.navigation.active ul {
+        clip-path: circle(1500px at 90% -15%);
+        pointer-events: all;
+    }
+
+    header.header {
+        padding: 20px 5px;
+        display: flex;
+        align-items: center;
+        margin-top: 0;
+    }
+
+
+
 }

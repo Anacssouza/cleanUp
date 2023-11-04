@@ -24,6 +24,11 @@ urlpatterns = [
     path('editar/alterar_senha/', views.alterar_senha, name='alterar_senha'),
     path('contato/', views.contato, name='contato'),
     path('teste404/', views.teste404, name='teste404'),
+    path('enviaemail/', views.enviaemail, name='enviaemail'),
+
+
+
+
 
 ]
 

@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: black;
+    background-color: #B3B3B3;
     font-family: 'Oswald';
     color: white;
 }
@@ -72,41 +72,11 @@ h1 {
 }
 
 
-nav.meubreadcrumb {
-    position: absolute;
-    top: 5rem;
-    left: 3.5rem;
-    width: 50%;
-}
-
-.bread {
-    list-style: none;
-    display:flex;
-    flex-direction: row;
-    color: white;
-}
-
-.bread li {
-    margin-right: 1rem;
-}
-
-.bread .atual {
-    color: #606c38
-}
-
-.bread a{
-    text-decoration: none;
-    color: white;
-}
-
-.bread a:hover{
-    color: #606c38;
-}
 
 @media screen and (max-width: 500px) {
 
     main {
-        margin-top: 15rem;
+        margin-top: 5rem;
     }
 
     h1 {

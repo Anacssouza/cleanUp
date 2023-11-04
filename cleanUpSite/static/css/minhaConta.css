@@ -21,6 +21,12 @@ header {
 .infos {
     align-items: center;
     display: flex;
+
+}
+
+.imgInfos {
+   flex: 0 0 auto;
+   width: 41.5%;
 }
 
 .info {
@@ -32,6 +38,8 @@ header {
   border: 2px #EBEBEE solid;
   align-items: center;
   padding-top: 2.0rem;
+  flex: 0 0 auto;
+  width: 41.5%;
 
 }
 
@@ -215,36 +223,7 @@ div.botoesAcoes {
     font-weight: 300;
     border-radius: 20px;
 }
-nav.meubreadcrumb {
-    position: absolute;
-    top: 5rem;
-    left: 3.5rem;
-    width: 50%;
-}
 
-.bread {
-    list-style: none;
-    display:flex;
-    flex-direction: row;
-    color: white;
-}
-
-.bread li {
-    margin-right: 1rem;
-}
-
-.bread .atual {
-    color: #606c38
-}
-
-.bread a{
-    text-decoration: none;
-    color: white;
-}
-
-.bread a:hover{
-    color: #606c38;
-}
 
 .ativo {
      visibility: visible;
@@ -285,4 +264,27 @@ ul.errorlist {
     list-style: none;
     padding-left: 0.3rem;
     color: rgba(225,0,0,0.7);
+}
+
+@media (max-width: 750px){
+    .imgInfos img.image {
+       display: none;
+    }
+
+    .infos {
+        flex-direction: column;
+    }
+
+    nav.meubreadcrumb .bread {
+        width: 100%;
+        left: -2rem;
+        position: relative
+    }
+
+    .info {
+        width:100%;
+        margin-top: 30px;
+    }
+
+
 }

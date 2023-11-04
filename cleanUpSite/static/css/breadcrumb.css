@@ -1,0 +1,30 @@
+nav.meubreadcrumb {
+    position: absolute;
+    top: 5rem;
+    left: 6.7rem;
+}
+
+.bread {
+    list-style: none;
+    display:flex;
+    flex-direction: row;
+    color: white;
+}
+
+.bread li {
+    margin-right: 1rem;
+}
+
+.bread .atual {
+    color: #606c38;
+    font-weight: 500;
+}
+
+.bread a{
+    text-decoration: none;
+    color: white;
+}
+
+.bread a:hover{
+    color: #606c38;
+}

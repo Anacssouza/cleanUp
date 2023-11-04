@@ -3,7 +3,11 @@ from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail, EmailMultiAlternatives
 from django.shortcuts import render, redirect,get_object_or_404
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
+
 from cleanUpSite.form import CustomUserChangeForm, CustomUserCreationForm, foto
 from cleanUpSite.models import Foruns
 from django.contrib import messages
@@ -199,3 +203,22 @@ def custom_500_page(request):
 
 def teste404(request):
     return render(request, '404.html')
+
+def enviaemail (request):
+    nome = request.POST.get('name')
+    email = request.POST.get('email')
+    mensagem = request.POST.get('message')
+    print(mensagem)
+
+    texto = f'nome = {nome}, email = {email}, mensagem = {mensagem}'
+
+    html_content = render_to_string('emails/emailContato.html', {'nome': nome, 'email': email, 'mensagem': mensagem})
+    text_content = strip_tags(html_content)
+
+    email = EmailMultiAlternatives('CleanUp - Chegou uma mensagem de contato', text_content, 'anacsilveirasouzareserva@gmail.com', ['anacsilveirasouza@gmail.com'])
+    email.attach_alternative(html_content, 'text/html')
+    email.send()
+
+   # send_mail('CleanUp - Chegou uma mensagem de contato', texto, f'{email}',
+    #          recipient_list=['anacsilveirasouza@gmail.com'])
+    return redirect('home')
