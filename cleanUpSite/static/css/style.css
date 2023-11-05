@@ -299,3 +299,17 @@ body {
     width: 100%;
 }
 
+@media (max-width: 900px) {
+    .blocoHero h1 {
+        font-size: 3rem;
+    }
+
+    .blocoHero p {
+        font-size: 2rem;
+        margin-top: 2rem;
+    }
+
+    .textoCaixaConteudoDesm,.textoCaixaConteudoDesm2 {
+        width: 100%;
+    }
+}

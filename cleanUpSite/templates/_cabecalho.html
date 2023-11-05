@@ -10,13 +10,18 @@
     <title> CleanUp </title>
     <link rel="stylesheet" type="text/css" href="{% static '/css/_cabecalho.css' %}">
     <link rel="shortcut icon" href="{% static '/img/favicon.png' %}" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
 
     <header class="header">
-        <img class="logo" style="width:8rem;" src="{% static 'img/logo.png' %}" alt="">
-        <button class="hamburguer"> </button>
+        <img class="logo" style="max-width:8rem;" src="{% static 'img/logo.png' %}" alt="">
+        <div class="menuResponsivo">
+            <button class="hamburguer"> </button>
+        </div>
         <nav class="navigation"> <!--nav-->
             {% if user.is_authenticated %}
                 <ul>
@@ -29,25 +34,36 @@
                     <li class="nav">
                         <a href="/contato" > Contato </a>
                     </li>
-                    <li>
+                    <li class="nav">
                         <a class="minhaConta" href="/minhaConta/{{dbs.id}}"> Minha Conta </a>
                         <ul>
-                            <li>
+                            <li class="buttonEditar">
                                 <a href="/minhaConta/{{dbs.id}}"> Editar </a>
                             </li>
                             <li>
                                 <a href="/sair"> Sair </a>
                             </li>
                         </ul>
+
+                    </li>
+                    <li class="nav">
+                        <a class="botaoSair" href="/sair"> Sair </a>
                     </li>
 
                 </ul>
 
             {% else %}
-                <a href="/" > Home </a>
-                <a href="/contato/" > Contato </a>
-
-                <button class="btnLogin-popup"> Login </button>
+                <ul>
+                    <li class="nav">
+                        <a href="/desmatamento/" > Home </a>
+                    </li>
+                    <li class="nav">
+                        <a href="/contato/" > Contato </a>
+                    </li>
+                    <li class="nav">
+                        <a class="btnLogin-popup"> Login </a>
+                    </li>
+                </ul>
             {% endif %}
 
         </nav>
@@ -77,7 +93,7 @@
                     <label>
                         <input type="checkbox" name="" id=""> Lembrar meu usuário
                     </label>
-                    <a href="#"> Esqueci minha senha </a>
+                    <a href="{% url 'password_reset' %}"> Esqueci minha senha </a>
                 </div>
                 <input type="submit" class="btn btnHeader" value="logar">
                 <div class="login-register">
@@ -95,21 +111,22 @@
 
                  <div class="input-box">
                     <span class="icon"><ion-icon name="person"></ion-icon></span>
-                    <input type="text" placeholder="Nome" name="username">
+                    <input type="text"  name="username" id="username">
                  <!--   {{form.nome}}-->
-                    <label> Nome </label>
+                    <label for="username"> Username </label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="email" placeholder="Email" name="email">
+                    <input type="email"  name="email" id="emailcad">
+                    <label for="emailcad"> Email </label>
                  <!--
                     {{form.email}} -->
-                    <label> Email </label>
+
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" placeholder="Senha" name="senha">
-                    <label> Senha </label>
+                    <input type="password"  name="senha" id="senha">
+                    <label for="senha"> Senha </label>
                    <!--  {{form.senha}} -->
                 </div>
                 <div class="remember-forgot">

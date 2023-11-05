@@ -1,7 +1,12 @@
 {% load static %}
 
+*{
+    font-family: 'Oswald';
+}
+
 header {
     position: fixed;
+    background: transparent;
     top: 0;
     left: 0;
     width: 100%;
@@ -10,13 +15,6 @@ header {
     justify-content: space-between;
     align-items:center;
     z-index: 1;
-}
-
-
-.logo {
-    font-size: 2rem;
-    color: #FFFFFF;
-    user-select: none;
 }
 
 .navigation {
@@ -33,10 +31,11 @@ header {
 }
 
 .navigation .btnLogin-popup {
-    width: 130px;
-    height: 50px;
+    width: 120px;
     background: transparent;
     border: 2px solid #FFFFFF;
+    text-align: center;
+    align-items: center;
     outline: none;
     border-radius: 6px;
     cursor: pointer;
@@ -52,19 +51,6 @@ header {
     color: #162938;
 }
 
-.navigation a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 100%;
-    height: 3px;
-    background: #FFFFFF;
-    border-radius: 5px;
-    transform-origin: right;
-    transform: scaleX(0);
-    transition: transform 0.5s;
-}
 
 .navigation a:hover::after{
     transform-origin: left;
@@ -107,6 +93,7 @@ header {
 .wrapper .form-box {
     width: 100%;
     padding: 40px;
+    color: #FFFFFF;
 }
 
 .wrapper .form-box.login {
@@ -208,10 +195,15 @@ header {
 
 .remember-forgot a {
     text-decoration: none;
+    color: #7fa429;
 }
 
 .remember-forgot a:hover {
     text-decoration: underline;
+}
+
+nav ul li.nav a:hover {
+    color: #7fa429;
 }
 
 .btnHeader {
@@ -237,39 +229,26 @@ header {
 .login-register p a {
     text-decoration: none;
     font-weight: 600;
+    color: #7fa429;
 }
 
 login-register p a:hover {
     text-decoration: underline;
 }
 
-* {
-    text-decoration: none;
-}
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 100px;
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-    z-index: 1;
-}
 
 img.logo {
-    width: 3rem;
+    width: 8rem;
     color: #FFFFFF;
 }
 
 header .navigation ul {
     list-style: none;
+    display: flex;
 }
 
 header .navigation ul li {
     position: relative;
-    float: left;
 }
 
 header .navigation ul li a{
@@ -298,30 +277,17 @@ header .navigation ul li:hover > ul {
     display: initial;
 }
 
-header .navigation ul li ul li {
-    width: 115px;
-    padding: 7px 0;
-}
-
 nav ul li.nav a{
     padding: 5px 0;
     color: #FFFFFF;
 }
 
 
-.nav a::after {
-    content: '';
-    position: absolute;
-    left: 20px;
-    right: 0px;
-    bottom: -6px;
-    width: 100%;
-    height: 3px;
-    background: #FFFFFF;
-    border-radius: 5px;
-    transform-origin: right;
-    transform: scaleX(0);
-    transition: transform 0.5s;
+/* opções minha conta -> editar sair */
+
+header .navigation ul li ul li {
+    width: 115px;
+    padding: 7px 0;
 }
 
 .navigation .minhaConta {
@@ -333,7 +299,6 @@ nav ul li.nav a{
 
 .navigation .minhaConta:hover {
     background-color: #FFFFFF;
-    color: green;
     border-bottom-radius: 0px;
 }
 
@@ -359,10 +324,14 @@ nav ul li.nav a{
     margin-top: 5px;
 }
 
+.nav .botaoSair {
+    display: none;
+}
+
 @media (max-width: 750px){
     .hamburguer {
         display: block;
-        z-index: 1;
+        z-index: 2;
         right: -2px;
     }
 
@@ -372,13 +341,14 @@ nav ul li.nav a{
         left: 0;
         width: 100vw;
         height: 100vh;
-        background: green;
+        background: #7fa429;
         clip-path: circle(100px at 90% -15%);
         transition: 1s ease-out;
         flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        gap: 0;
+
+        align-items: left;
+        justify-content: center;
+        gap: 4rem;
         pointer-events: none;
     }
 
@@ -387,13 +357,72 @@ nav ul li.nav a{
         pointer-events: all;
     }
 
-    header.header {
-        padding: 20px 5px;
-        display: flex;
-        align-items: center;
-        margin-top: 0;
+
+    ul {
+        padding: 0;
+        margin: 0;
+        text-align: center;
+
     }
 
+    img.logo {
+        width: 5rem;
+    }
 
+    .menuResponsivo {
+        width: 100%;
+        display: flex;
+        justify-content: right;
+    }
 
+    .navigation .minhaConta {
+        border: none;
+        padding: 0px;
+    }
+
+    nav.navigation ul li a {
+        font-size: 2.5rem;
+    }
+
+    .buttonEditar {
+        display: none;
+    }
+
+    li.nav ul {
+        pointer-events: none;
+        display:none;
+    }
+
+    li.nav ul li {
+        pointer-events: none;
+        display:none;
+    }
+
+    .navigation .minhaConta:hover {
+        background-color: transparent;
+    }
+    header .navigation ul li:hover > ul {
+        display: none;
+    }
+
+    .nav .botaoSair {
+        display: initial;
+    }
+
+    .navigation .btnLogin-popup {
+        border: none;
+        font-size: 2.5rem;
+        padding: 0;
+        margin: 0px 20px;
+    }
+
+    .wrapper {
+        height: 520px;
+        right: 0;
+        left: 0;
+        width: 99%;
+        border-radius: 0;
+        margin: 0 auto;
+        align-items: center;
+    }
 }
