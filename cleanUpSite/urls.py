@@ -2,6 +2,7 @@
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.contrib.auth import views as auth_views
 
 
 
@@ -26,6 +27,10 @@ urlpatterns = [
     path('teste404/', views.teste404, name='teste404'),
     path('enviaemail/', views.enviaemail, name='enviaemail'),
     path('conteudos/', views.conteudos, name='conteudos'),
+    path('password_reset/', auth_views.PasswordResetView.as_view(template_name='recuperarSenha/password-reset.html'), name="password_reset"),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name='recuperarSenha/password-reset-done.html'), name="password_reset_done"),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name='recuperarSenha/password-reset-confirm.html'), name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(template_name='recuperarSenha/password-reset-complete.html'), name='password_reset_complete'),
 
 
 
