@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #22222c;
+}
+
+main {
+    height: 100vh;
+    width: 100%;
+}
+
+.titleConteudos {
+    color: white;
+    font-size: 4rem;
+    margin-top: 6rem;
+    text-align: center;
+    color: #759629;
+}
+
+.chamada {
+    width: 100%;
+    height: 10rem;
+
+    margin-top: 7rem;
+    padding: 0 50px;
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.chamadaForum {
+    width: 55%;
+    height: 10rem;
+    background-color: white;
+    border-radius: 20px;
+    padding: 0 50px;
+    margin-left: -300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chamadaForum div p {
+    margin-top: -10px;
+    width: 75%;
+}
+
+.chamadaForum .btn {
+    height: 3rem;
+    padding: 5px 30px;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    border-radius: 20px;
+    background: #759629;
+    border: 1px solid #759629;
+}
+
+.conteudos {
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+     margin-bottom: 4rem;
+}
+
+.conteudos h2 {
+    color: white;
+    align-self: flex-start;
+    margin-left: 10rem;
+    font-size: 3rem;
+}
+
+.cardsPaginas {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Define 3 colunas com tamanhos iguais */
+    grid-template-rows: auto auto; /* Define 2 linhas com tamanho automático */
+    gap: 50px;
+    justify-content: center; /* Alinha os elementos horizontalmente no centro */
+    align-content: center;
+}
+
+.card img {
+    height: 200px;
+}
+
+.globo {
+    width: 270px;
+    height: 270px;
+    border-radius: 50%;
+    background-image: url(https://assets.historyplay.tv/br/public/styles/thumb_standard/public/images/2021/03/25/mapa_do_mundo_-_mapa-mundi_-_continentes_-_history_channel_brasil.jpg?h=ae1281eb);
+    background-size: cover;
+
+	-webkit-animation: loop 120s linear infinite;
+	animation: loop 120s linear infinite;
+	-moz-animation: loop 120s linear infinite;
+    box-shadow: 20px 20px 30px black, 10px 10px 30px black inset, inset -6px -5px 20px #000916;
+
+}
+
+@-webkit-keyframes loop {
+    0% { background-position: 0 0; }
+	100%{ background-position: -900px 0;}
+}
+
+@-moz-keyframes loop {
+    0% { background-position: 0 0; }
+	100%{ background-position: -900px 0;}
+}
+
+@keyframes loop {
+    0% { background-position: 0 0; }
+	100%{ background-position: -900px 0;}
+}
+
+footer {
+    margin-top: 280px;
+
+}
+
+@media (max-width: 900px) {
+    .cardsPaginas {
+        grid-template-columns: 1fr;
+
+        gap: 5px;
+        width: 15px;
+    }
+
+    .globo {
+        display: none;
+    }
+
+    .chamadaForum {
+        justify-content: center;
+        height: 27rem;
+        width: 100%;
+        margin: 0 auto;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .chamadaForum div p {
+        width: 100%;
+    }
+
+    .titleConteudos{
+        font-size: 40px;
+    }
+
+    .conteudos h2 {
+        font-size: 25px;
+        margin-left: 0px;
+    }
+}
