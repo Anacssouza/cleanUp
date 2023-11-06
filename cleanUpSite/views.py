@@ -33,21 +33,21 @@ def create(request):
   #      form.save()
   #      return redirect('inicial')
     if request.method == 'GET':
-      return render(request, 'home.html')
+      return render(request, 'desmatamento.html')
     else:
         username = request.POST.get('username')
         email = request.POST.get('email')
         senha = request.POST.get('senha')
 
         if len(senha) < 8:
-            return render(request, 'home.html', {
+            return render(request, 'desmatamento.html', {
                 'error': 'A senha deve ter pelo menos 8 caracteres'
             })
 
         user = User.objects.filter(email=email).first()
 
         if user:
-            return render(request, 'home.html', {
+            return render(request, 'desmatamento.html', {
                 'error': 'E-mail já existe'
             })
 
@@ -78,7 +78,7 @@ def create(request):
 def login_site(request):
 
     if request.method == 'GET':
-        return render(request,'home.html')
+        return render(request,'desmatamento.html')
     else:
         username = request.POST.get('username')
         senha = request.POST.get('senha')
@@ -90,7 +90,7 @@ def login_site(request):
             login(request, user)
             return render(request, 'minhaConta.html')
         else:
-            return render(request, 'home.html', {
+            return render(request, 'desmatamento.html', {
                 'error': 'Dados errados'
             })
 
@@ -148,14 +148,14 @@ def upload_profile_picture(request):
 
     return render(request, 'minhaConta.html', {'form': form})
 
-@login_required(login_url="home")
+@login_required(login_url="desmatamento")
 def minhaConta(request):
     user = request.user
     return render(request, 'minhaConta.html', {'user': user})
 
 def sair(request):
     logout(request)
-    return redirect('home')
+    return redirect('desmatamento')
 # exclui o arquivo sair.html tem q testar se não quebrou nada
 
 def editar(request):
@@ -177,7 +177,7 @@ def deletarUsuario(request, pk):
     except:
         # Trate o caso em que o usuário não existe
         pass
-    return redirect('home')
+    return redirect('desmatamento')
 
 @login_required
 def alterar_senha(request):
@@ -209,7 +209,7 @@ def enviaemail (request):
     email.attach_alternative(html_content, 'text/html')
     email.send()
 
-    return redirect('home')
+    return redirect('desmatamento')
 
 def custom_404_page(request, exception):
     return render(request, '404.html', status=404)
