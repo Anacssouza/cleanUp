@@ -1,11 +1,30 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="{% static '/img/favicon.png' %}" type="image/x-icon">
-    <title> Erro 500 </title>
+    <link rel="stylesheet" href="{% static '/css/pag500.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link rel="shortcut icon" href="{% static '/img/favicon.png' %}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <title> CleanUp - Erro 500 </title>
 </head>
 <body>
-    <h1> Erro 500 </h1>
+    <div class="main">
+        <div class='imgEtexto'>
+            <img src="{% static '/img/imagem500.png' %}" alt="">
+            <p >
+                Ops, algo deu errado. :(
+            </p>
+            <p >
+                Retorne a <a href="/"> Home </a>  para recomeçar a sua procura de lá.
+            </p>
+        </div>
+        <div class="dino">
+            <img src="{% static '/img/nave.png'%}" alt="">
+        </div>
+    </div>
 </body>
 </html>

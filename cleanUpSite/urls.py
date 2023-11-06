@@ -10,7 +10,7 @@ handler404 = 'cleanUpSite.views.custom_404_page'
 handler500 = 'cleanUpSite.views.custom_500_page'
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.desmatamento, name='home'),
     path('inicial/', views.inicial, name='inicial'),
     path('create/', views.create, name='create'),
     path('sair', views.sair, name='sair'),
@@ -25,6 +25,7 @@ urlpatterns = [
     path('editar/alterar_senha/', views.alterar_senha, name='alterar_senha'),
     path('contato/', views.contato, name='contato'),
     path('teste404/', views.teste404, name='teste404'),
+    path('teste500/', views.teste500, name='teste500'),
     path('enviaemail/', views.enviaemail, name='enviaemail'),
     path('conteudos/', views.conteudos, name='conteudos'),
     path('password_reset/', auth_views.PasswordResetView.as_view(template_name='recuperarSenha/password-reset.html'), name="password_reset"),

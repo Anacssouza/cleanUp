@@ -220,5 +220,8 @@ def custom_500_page(request):
 def teste404(request):
     return render(request, '404.html')
 
+def teste500(request):
+    return render(request, '500.html')
+
 def conteudos(request):
     return render(request, 'conteudos.html')
