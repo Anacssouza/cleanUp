@@ -7,6 +7,7 @@ from django.core.mail import send_mail, EmailMultiAlternatives
 from django.shortcuts import render, redirect,get_object_or_404
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+import requests
 
 from cleanUpSite.form import CustomUserChangeForm, CustomUserCreationForm, foto
 from cleanUpSite.models import Foruns
@@ -117,7 +118,44 @@ def login_site(request):
 #até aqui
 
 def desmatamento(request):
-    return render(request, 'desmatamento.html')
+
+   # url = "https://api.themoviedb.org/3/movie/321/images"
+
+   # headers = {
+    #    "accept": "application/json",
+     #   "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MDY2YjM1OTEyMmRlZjZkZjk3YjZmMTA4YTZjZjRkZSIsInN1YiI6IjYzYTRiNDE5NWMzMjQ3MDA5NDQ0ZjhiOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CxtuO4w4Lz10d9jYFeaZLQQaWSe7Wqon43VQ3qDhxLE",
+   # }
+
+   # response = requests.get(url, headers=headers)
+
+    #print(response.text)
+
+    def obter_detalhes_do_filme(api_key, filme_id):
+        url = f'https://api.themoviedb.org/3/movie/{filme_id}?api_key={api_key}&language=pt-BR'
+        response = requests.get(url)
+        dados_do_filme = response.json()
+        return dados_do_filme
+
+    def obter_url_da_imagem(api_key, caminho_da_imagem):
+        base_url = 'https://image.tmdb.org/t/p/original/'
+        return f'{base_url}{caminho_da_imagem}'
+
+    # Substitua 'sua_chave_de_api' pela chave real que você obteve
+    api_key = '9066b359122def6df97b6f108a6cf4de'
+    filme_id = 410718  # Substitua pelo ID real do filme que você está interessado
+
+    detalhes_do_filme = obter_detalhes_do_filme(api_key, filme_id)
+
+    if 'poster_path' in detalhes_do_filme:
+        caminho_da_imagem = detalhes_do_filme['poster_path']
+        url_da_imagem = obter_url_da_imagem(api_key, caminho_da_imagem)
+        nomeDoFilme = detalhes_do_filme['title']
+        descricao = detalhes_do_filme['overview']
+        print(f'URL da imagem do filme: {url_da_imagem}')
+    else:
+        print('Imagem não disponível para este filme.')
+
+    return render(request, 'desmatamento.html', {'url_da_imagem': url_da_imagem, 'nomeDoFilme': nomeDoFilme, 'descricao': descricao})
 
 def lixao(request):
     return render(request, 'lixao.html')
