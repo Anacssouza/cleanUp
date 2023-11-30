@@ -336,6 +336,39 @@ body {
     width: 50%;
 }
 
+.chamadaForum1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    color: black;
+}
+
+.chamadaForum1 .chamadaForumTexto h3{
+    word-wrap: break-word;
+    color: black;
+    font-size: 1.7rem;
+}
+
+.chamadaForum1 .chamadaForumTexto p{
+    word-wrap: break-word;
+    color: black;
+    width: 100%;
+    font-size: 1.3rem;
+}
+
+.chamadaForum1 .chamadaForumTexto {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.chamadaForum1 .chamadaForumImg {
+    margin-right: 2rem;
+}
+
 @media (max-width: 900px) {
     .blocoHero h1 {
         font-size: 3rem;
@@ -373,5 +406,34 @@ body {
 
     .conteudoDesmatamento2 svg {
         display: none;
+    }
+
+    .filmeDesc {
+        width: 90%;
+     }
+
+     .caixaFilme img{
+        width: 200px;
+      }
+
+    .chamadaForum1 {
+        flex-direction: column;
+        height: 90vh;
+    }
+
+    .chamadaForum1 img {
+        width: 50%;
+        margin-bottom: 2rem;
+    }
+
+    .chamadaForum1 .chamadaForumImg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0px;
+    }
+
+    .chamadaForum1 .chamadaForumTexto {
+        width: 90%;
     }
 }

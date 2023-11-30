@@ -118,18 +118,7 @@ def login_site(request):
 #até aqui
 
 def desmatamento(request):
-
-   # url = "https://api.themoviedb.org/3/movie/321/images"
-
-   # headers = {
-    #    "accept": "application/json",
-     #   "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MDY2YjM1OTEyMmRlZjZkZjk3YjZmMTA4YTZjZjRkZSIsInN1YiI6IjYzYTRiNDE5NWMzMjQ3MDA5NDQ0ZjhiOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CxtuO4w4Lz10d9jYFeaZLQQaWSe7Wqon43VQ3qDhxLE",
-   # }
-
-   # response = requests.get(url, headers=headers)
-
-    #print(response.text)
-
+    #api
     def obter_detalhes_do_filme(api_key, filme_id):
         url = f'https://api.themoviedb.org/3/movie/{filme_id}?api_key={api_key}&language=pt-BR'
         response = requests.get(url)

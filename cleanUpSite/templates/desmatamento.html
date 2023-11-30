@@ -85,6 +85,8 @@
             <p> A resposta é positiva. As florestas são ricas fontes de recursos, mas o respeito a elas é ainda mais valioso, tanto que a ODS (Objetivos de Desenvolvimento Sustentável) e o Acordo de Paris preveem metas na redução dos gases que intensificam o efeito estufa. Há, também, o Código Florestal que, entre os seus princípios, está a necessidade alarmante da análise do Cadastro Ambiental Rural para identificar as áreas de conservação e terras indígenas. </p>
         </div>
     </section>
+
+    <!-- conteúdo que vem da api do tmdb -->
     <section class="filme">
         <div class="card text-center">
           <div class="card-header">
@@ -97,9 +99,22 @@
                 <p class="filmeDesc"> Descrição: {{descricao}} </p>
           </div>
           <div class="card-footer text-body-secondary">
-              {{nomeDoFilme}}
+              Filme: {{nomeDoFilme}}
           </div>
         </div>
+    </section>
+    <section >
+        <div class="chamadaForum1">
+            <div class="chamadaForumImg">
+                <img src="{% static 'img/imgForumChamada.png'%}" alt="dinossauro com uma lupa">
+            </div>
+            <div class="chamadaForumTexto">
+                <h3> Está aprendendo ainda? </h3>
+                <p>  Todos estamos, troque ideias, faça perguntas, converse e conheça pessoas com os mesmos interesses conscientes que você, só acessar o nosso fórum atual! </p>
+                <a href="/forum/" class="btn btn-success"> Acessar </a>
+            </div>
+        </div>
+
     </section>
 
     {% include 'footer.html' %}
