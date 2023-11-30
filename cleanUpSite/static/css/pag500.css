@@ -46,3 +46,30 @@ body {
      width: 40rem;
 }
 
+@media (max-width: 900px) {
+    .main {
+        flex-direction: column-reverse;
+    }
+
+    .dino img {
+        width: 20rem;
+    }
+
+    .imgEtexto img {
+        width: 22rem;
+        margin-top: -5rem;
+    }
+
+    .imgEtexto p {
+        font-size: 1.5rem;
+        word-wrap: break-word;
+        margin-top: 0rem;
+
+    }
+
+    .imgEtexto {
+        margin-right: 0px;
+    }
+
+}
+
