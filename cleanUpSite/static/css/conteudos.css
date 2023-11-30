@@ -64,6 +64,12 @@ main {
     border: 1px solid #759629;
 }
 
+.nossasPaginasTexto {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+}
+
 .conteudos {
     margin-top: 7rem;
     display: flex;
@@ -71,13 +77,12 @@ main {
     align-items: center;
     justify-content: center;
     margin-bottom: 4rem;
-    padding: 0 200px;
 }
 
 .conteudos h2 {
     color: white;
-    align-self: flex-start;
     font-size: 3rem;
+    padding: 0 200px;
 }
 
 .cardsPaginas {
@@ -86,6 +91,7 @@ main {
     flex-wrap: wrap; /* Permite que os itens se movam para a próxima linha conforme necessário */
     justify-content: space-around; /* Distribui os itens igualmente ao longo do eixo principal (horizontal) */
     gap: 50px;
+    padding: 0 200px;
 }
 
 .cardsPaginas > div {
@@ -134,11 +140,13 @@ footer {
         flex-direction: column; /* Altera a direção do layout para coluna */
         align-items: center; /* Alinha os itens no centro verticalmente */
         gap: 5px;
+        padding: 0 0;
     }
 
     .cardsPaginas > div {
         flex: 1 1 100%; /* Faz com que as colunas ocupem 100% da largura */
         margin-bottom: 5px; /* Adiciona margem inferior entre as colunas */
+
     }
 
     .globo {
@@ -167,6 +175,18 @@ footer {
     .conteudos h2 {
         font-size: 25px;
         margin-top: 9rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        padding: 0 0;
+    }
+
+    .nossasPaginasTexto {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
     }
 
     footer {
