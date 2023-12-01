@@ -16,6 +16,7 @@ from cleanUpSite.models import Foruns, UserFor
 def forum(request):
     data = {}
 
+
     form = CriaForum(request.POST)
     if request.method == 'POST':
         # Se o formulário for submetido, lide com a criação do fórum aqui
@@ -31,7 +32,7 @@ def forum(request):
             return redirect('forum'),
     else:
         # Se for uma solicitação GET, mostre a página do fórum com o formulário de criação
-        data['db'] = Foruns.objects.all()
+        data['db'] = Foruns.objects.order_by('-userfor__data_participacao').distinct()
 
         data['form'] = CriaForum()
         user = request.user
@@ -41,10 +42,6 @@ def forum(request):
         data['author_name'] = author_name
         data_participacao = user_for.data_participacao
         data['datap'] = data_participacao
-
-          # Substitua pelo seu modelo e critério de seleção
-
-
 
         for forum in data['db']:
             user_for = UserFor.objects.filter(id_foruns=forum.pk).first()
