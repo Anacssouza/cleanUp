@@ -34,11 +34,13 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 
 .sobre .sobreTextoImagem p {
     font-weight: 300;
     font-size: 1.5rem;
+    text-align: justify;
 }
 
 .sobre .sobreTextoImagem h2, .formulario h2 {

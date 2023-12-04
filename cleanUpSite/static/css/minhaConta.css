@@ -286,5 +286,12 @@ ul.errorlist {
         margin-top: 30px;
     }
 
+    .email p, .nome p {
+        font-size: 20px;
+    }
+
+    .AEs h2, .sobre h2 {
+        font-size: 20px;
+    }
 
 }

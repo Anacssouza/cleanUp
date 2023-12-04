@@ -316,7 +316,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: black;
+    color: white;
 }
 
 .caixaFilme {
@@ -325,14 +325,18 @@ body {
     color: black;
     align-items: center;
     justify-content: center;
+    color: white;
 }
 
 .caixaFilme img{
     width: 300px;
+    -webkit-box-shadow: 10px 10px 36px -8px rgba(0,0,0,0.56);
+    -moz-box-shadow: 10px 10px 36px -8px rgba(0,0,0,0.56);
+    box-shadow: 10px 10px 36px -8px rgba(0,0,0,0.56);
 }
 
 .filmeDesc {
-    color: black;
+    color: white;
     width: 50%;
 }
 
@@ -343,7 +347,11 @@ body {
     justify-content: center;
     height: 100vh;
     width: 100%;
-    color: black;
+    color: white;
+}
+
+.card-footer {
+    color: white;
 }
 
 .chamadaForum1 .chamadaForumTexto h3{

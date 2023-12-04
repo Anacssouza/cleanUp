@@ -50,7 +50,8 @@ main {
 
 .chamadaForum div p {
     margin-top: -10px;
-    width: 75%;
+    width: 95%;
+    text-align: justify;
 }
 
 .chamadaForum .btn {
@@ -62,6 +63,10 @@ main {
     border-radius: 20px;
     background: #759629;
     border: 1px solid #759629;
+}
+
+.chamadaForum h2 {
+    font-size: 1.5rem;
 }
 
 .nossasPaginasTexto {
