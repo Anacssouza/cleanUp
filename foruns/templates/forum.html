@@ -58,11 +58,11 @@
                       <div class="d-flex justify-content-center">
                           <form name="form" id="form" method="post" action="/criaF/">
                               {% csrf_token %}
-                               <div class="input-box w-100 d-flex flex-column">
+                               <div class="input-box1 w-100 d-flex flex-column">
                                    <label> Título </label>
-                                   {{ form.titulo }}
+                                   {{ form.titulo.as_textarea }}
                               </div>
-                              <div class="input-box w-100 textarea d-flex flex-column">
+                              <div class="input-box1 w-100 textarea d-flex flex-column">
                                   <label> Descrição </label>
                                   {{ form.descricao.as_textarea }}
                               </div>
@@ -88,8 +88,8 @@
                  <p> @ADM </p>
              </div>
              <div class="postagem">
-                 <h3 class="tituloTopico"> Título do tópico principal </h3>
-                 <p class="textoTopico"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec diam ipsum. Nullam dignissim quis ligula ac molestie. Duis feugiat convallis erat feugiat convallis. Cras viverra maximus diam id eleifend. Fusce mattis, nisi sit amet tincidunt fringilla, erat urna lobortis mauris, id gravida augue nisi vitae nisi. </p>
+                 <h3 class="tituloTopico"> Fórum de Exemplo </h3>
+                 <p class="textoTopico"> Esse é um fórum de exemplo feito pelos nossos administradores. Os fóruns publicados possuem um título como esse escrito aqui em cima: "Fórum de Exemplo" e possuem uma descrição que é esse textinho que você está lendo nesse exato momento. </p>
              </div>
              <div class="iconesAcoes">
                  <p> @ADM </p>
@@ -148,11 +148,11 @@
                                   <div class="d-flex justify-content-center">
                                       <form name="form" id="form2" method="post" action="{% url 'editarF' db.id_foruns %}">
                                           {% csrf_token %}
-                                           <div class="input-box w-100 d-flex flex-column">
+                                           <div class="input-box1 w-100 d-flex flex-column">
                                                <label> Título </label>
-                                               {{ form.titulo }}
+                                               {{ form.titulo.as_textarea }}
                                           </div>
-                                          <div class="input-box w-100 textarea d-flex flex-column">
+                                          <div class="input-box1 w-100 textarea d-flex flex-column">
                                               <label> Descrição </label>
                                               {{ form.descricao.as_textarea }}
                                           </div>
@@ -172,7 +172,7 @@
 
              {% else %}
                 <div class="iconesAcoes iconesAcoes2">
-                     <img class="iconCitar" src="{% static '/img/citar.svg' %}">
+                    <a href="/teste404/"> <img class="iconCitar" src="{% static '/img/citar.svg' %}"> </a>
                     <a href="/teste500/" class="btn btn-transparent"><img class="iconReportar" src="{% static '/img/reportar.svg' %}"></a>
                  </div>
              {% endif %}

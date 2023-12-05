@@ -277,13 +277,16 @@ ul.errorlist {
 
     nav.meubreadcrumb .bread {
         width: 100%;
-        left: -2rem;
         position: relative
     }
 
     .info {
         width:100%;
         margin-top: 30px;
+    }
+
+    .col-5 {
+        width: 100%;
     }
 
     .email p, .nome p {
@@ -293,5 +296,20 @@ ul.errorlist {
     .AEs h2, .sobre h2 {
         font-size: 20px;
     }
+
+    .btn.btnVoltar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ExcluirConta {
+        margin-top: -2.5px;
+    }
+
+    .btn.editar {
+        padding: 0.2rem 0.7rem !important;
+    }
+
 
 }

@@ -15,21 +15,6 @@
 <body class="body">
     {% include '_cabecalho.html' %}
 
-
-<!--
-    <div class="conta">
-        <h1> Minha Conta </h1>
-
-        <div class="col-8 m-auto pt-2 pb-2 text-center">
-            <strong> Nome: </strong> {{user.username}} <br>
-            <strong> Email: </strong> {{user.email}} <br>
-            <strong> Membro desde: </strong> {{user.date_joined}} <br>
-          <strong> Senha: </strong> {{user.password}} <br>
-        </div>
--->
-
-
-
 <div class="container">
 
     <div class=" col-11 m-auto infos">
@@ -78,7 +63,7 @@
                 <div class="AEs">
                   <h2 > Ações </h2>
                   <div class="botoesAcoes mx-auto">
-                    <a href="/editar/#" class="btn btn-dark editar" id="editar">Editar</a>
+                    <a href="/editar/#" class="btn btn-dark editar" id="editar"> Editar Dados </a>
                     <button class="btn btn-danger ExcluirConta" data-bs-toggle="modal" data-bs-target="#exampleModal" >Excluir Conta</button>
                   </div>
                 </div>
@@ -87,7 +72,7 @@
 
         <!--modal update-->
 
-        <div class="col-5 mx-auto pb-2 info inativo" id="InfoUpdate" >
+        <div class=" mx-auto pb-2 info inativo" id="InfoUpdate" >
             <div class="col mx-5 infoInicial">
                 <div>
                     <h2> Edição de Informações </h2>
@@ -124,7 +109,7 @@
                       <h2 > Ações </h2>
                       <div class="botoesAcoes mx-auto">
                         <input type="submit" class="btn btn-success" value="Salvar Dados">
-                        <a  href="/minhaConta/" class="btn btn-dark"> Voltar </a>
+                        <a  href="/minhaConta/" class="btn btn-dark btnVoltar"> Voltar </a>
                           <button  class="btn btn-danger ExcluirConta" data-bs-toggle="modal" data-bs-target="#exampleModal">Excluir Conta</button>
 
                       </div>

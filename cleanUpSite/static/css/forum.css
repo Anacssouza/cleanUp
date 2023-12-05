@@ -24,12 +24,23 @@ body {
 
 textarea {
     width: 100%; /* Define a largura como 100% do elemento pai */
-    height: 70px; /* Define uma altura fixa (ajuste conforme necessário) */
+    height: 50px; /* Define uma altura fixa (ajuste conforme necessário) */
     border-radius: 10px; /* Adiciona uma borda para melhorar a aparência */
     padding: 5px; /* Adiciona um preenchimento interno para afastar o texto das bordas */
     font-size: 16px; /* Define o tamanho da fonte */
     border: 1px solid;
     /* Outros estilos desejados */
+}
+
+
+.form div label {
+    transition: transform 0.18s ease;
+    transform: translateX(-0);
+}
+
+.form div label {
+    transition: none;
+    transform: translateX(-400px);
 }
 
 id_titulo {

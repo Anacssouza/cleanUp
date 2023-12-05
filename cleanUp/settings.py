@@ -28,7 +28,7 @@ SECRET_KEY = ')*mav^h#qaji=m4gx@_(be2wv81%vw+6%b56ecf2fiui@$=80('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1/minhaConta/', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1/minhaConta/', '127.0.0.1', '7c56-2804-676c-44c-6b00-b9e5-896f-9531-3ef5.ngrok-free.app']
 
 
 # Application definition
@@ -131,6 +131,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+import os
+import sys
+
+# ... The rest of our Django settings
+
+BASE_URL = "http://localhost:8000"
+
+DEV_SERVER = len(sys.argv) > 1 and sys.argv[1] == "runserver"
+
+USE_NGROK = os.environ.get("USE_NGROK", "False") == "True" and os.environ.get("RUN_MAIN", None) != "true"
 
 
 

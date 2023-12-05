@@ -67,6 +67,7 @@ main {
 
 .chamadaForum h2 {
     font-size: 1.5rem;
+    margin-bottom: 20px;
 }
 
 .nossasPaginasTexto {
@@ -142,15 +143,15 @@ footer {
 
 @media (max-width: 900px) {
     .cardsPaginas {
-        flex-direction: column; /* Altera a direção do layout para coluna */
-        align-items: center; /* Alinha os itens no centro verticalmente */
+        flex-direction: column;
+        align-items: center;
         gap: 5px;
         padding: 0 0;
     }
 
     .cardsPaginas > div {
-        flex: 1 1 100%; /* Faz com que as colunas ocupem 100% da largura */
-        margin-bottom: 5px; /* Adiciona margem inferior entre as colunas */
+        flex: 1 1 100%;
+        margin-bottom: 5px;
 
     }
 
@@ -195,6 +196,6 @@ footer {
     }
 
     footer {
-        margin-top: 120rem; /* Ajuste a margem conforme necessário para telas menores */
+        margin-top: 120rem;
     }
 }

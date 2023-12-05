@@ -86,15 +86,29 @@
         </div>
     </section>
 
+
+    <section >
+        <div class="chamadaForum1" style="background: #283618 url(../static/img/deserto.jpg) no-repeat center center fixed; background-size: cover; ">
+            <div class="chamadaForumImg">
+                <img src="{% static 'img/imgForumChamada.png'%}" alt="dinossauro com uma lupa">
+            </div>
+            <div class="chamadaForumTexto">
+                <h3> Está aprendendo ainda? </h3>
+                <p>  Todos estamos, troque ideias, faça perguntas, converse e conheça pessoas com os mesmos interesses conscientes que você, só acessar o nosso fórum atual! </p>
+                <a href="/forum/" class="btn btn-success" style="font-size: 1.5rem"> Acessar </a>
+            </div>
+        </div>
+
+    </section>
     <!-- conteúdo que vem da api do tmdb -->
-    <section class="filme" style="background-color:#9ACD32">
+    <section style="background: black">
         <div class="card text-center" style="background: #283618 url(../static/img/florestaFilme.jpg) no-repeat center center fixed; background-size: cover; ">
           <div class="card-header" style="color: white">
               Recomendação do mês
           </div>
           <div class=" caixaFilme">
-                <h5 class="card-title" style="color: white"> Já leu o conteúdo? </h5>
-                <p class="card-text" style="color: white">  Tira um tempinho e assiste esse filme, entretenimento e aprendizado nunca é demais! </p>
+                <h5 class="card-title" style="color: #FEFAE0; font-size: 1.8rem"> Já leu o conteúdo? </h5>
+                <p class="card-text" style="color: #FEFAE0; font-size: 1.7rem;">  Tira um tempinho e assiste esse filme, entretenimento e aprendizado nunca é demais! </p>
                 <img src="{{url_da_imagem}}" alt="">
                 <p class="filmeDesc"> Descrição: {{descricao}} </p>
           </div>
@@ -102,19 +116,6 @@
               Filme: {{nomeDoFilme}}
           </div>
         </div>
-    </section>
-    <section >
-        <div class="chamadaForum1">
-            <div class="chamadaForumImg">
-                <img src="{% static 'img/imgForumChamada.png'%}" alt="dinossauro com uma lupa">
-            </div>
-            <div class="chamadaForumTexto">
-                <h3> Está aprendendo ainda? </h3>
-                <p>  Todos estamos, troque ideias, faça perguntas, converse e conheça pessoas com os mesmos interesses conscientes que você, só acessar o nosso fórum atual! </p>
-                <a href="/forum/" class="btn btn-success"> Acessar </a>
-            </div>
-        </div>
-
     </section>
 
     {% include 'footer.html' %}

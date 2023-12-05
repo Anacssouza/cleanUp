@@ -28,3 +28,11 @@ nav.meubreadcrumb {
 .bread a:hover{
     color: #606c38;
 }
+
+@media (max-width: 900px) {
+    nav.meubreadcrumb {
+        left: 7.3rem;
+    }
+
+
+}

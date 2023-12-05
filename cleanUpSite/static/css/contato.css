@@ -124,4 +124,8 @@ h1 {
         color: white;
     }
 
+    nav.meubreadcrumb {
+        left: 7.65rem !important;
+    }
+
 }

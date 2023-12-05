@@ -335,9 +335,11 @@ body {
     box-shadow: 10px 10px 36px -8px rgba(0,0,0,0.56);
 }
 
+
 .filmeDesc {
     color: white;
     width: 50%;
+    font-size: 1.3rem;
 }
 
 .chamadaForum1 {
@@ -356,15 +358,15 @@ body {
 
 .chamadaForum1 .chamadaForumTexto h3{
     word-wrap: break-word;
-    color: black;
-    font-size: 1.7rem;
+    color: #FEFAE0;
+    font-size: 3rem;
 }
 
 .chamadaForum1 .chamadaForumTexto p{
     word-wrap: break-word;
-    color: black;
+    color: white;
     width: 100%;
-    font-size: 1.3rem;
+    font-size: 1.7rem;
 }
 
 .chamadaForum1 .chamadaForumTexto {
@@ -400,7 +402,7 @@ body {
         padding: 2rem;
     }
 
-    .textoCaixaConteudo p, .textoCaixaConteudoDesm p, .textoCaixaConteudoDesm2 p {
+    .textoCaixaConteudo p, .textoCaixaConteudoDesm p, .textoCaixaConteudoDesm2 p, .chamadaForum1 .chamadaForumTexto p {
         font-size: 1.3rem;
     }
 
@@ -408,7 +410,7 @@ body {
         margin-top: 70px;
     }
 
-    .textoCaixaConteudoDesm h3, .textoCaixaConteudoDesm2 h3 {
+    .textoCaixaConteudoDesm h3, .textoCaixaConteudoDesm2 h3, .chamadaForum1 .chamadaForumTexto h3 {
         font-size: 1.7rem;
     }
 
@@ -427,6 +429,7 @@ body {
     .chamadaForum1 {
         flex-direction: column;
         height: 90vh;
+        text-align: center;
     }
 
     .chamadaForum1 img {
