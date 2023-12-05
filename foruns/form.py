@@ -12,7 +12,6 @@ class CriaForum(forms.Form):
     titulo = forms.CharField()
     descricao = forms.CharField(widget=forms.Textarea)
 
-    # Adicione outros campos do formulário, como data_participacao, se necessário
 
     def save(self, user):
         # Crie as instâncias dos modelos e preencha os campos

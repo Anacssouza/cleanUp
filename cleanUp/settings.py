@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 from decouple import config
+import os
+import sys
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -108,7 +110,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTHENTICATION_BACKENDS = [
-    #'cleanUpSite.backends.custom_auth.EmailBackend', #adicionado
     'django.contrib.auth.backends.ModelBackend',
 ]
 
@@ -132,10 +133,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-import os
-import sys
-
-# ... The rest of our Django settings
 
 BASE_URL = "http://localhost:8000"
 

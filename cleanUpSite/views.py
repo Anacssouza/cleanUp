@@ -1,38 +1,24 @@
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
-from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail, EmailMultiAlternatives
-from django.shortcuts import render, redirect,get_object_or_404
+from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 import requests
 
-from cleanUpSite.form import CustomUserChangeForm, CustomUserCreationForm, foto
-from cleanUpSite.models import Foruns
-from django.contrib import messages
-from django.contrib.auth import get_user
-#from cleanUpSite.urls import handler404
+from cleanUpSite.form import CustomUserChangeForm
 
-def inicial(request):
-    return render(request, 'inicial.html')
-
-
-#mudei aqui
 def home(request):
     data = {}
-    #data['form'] = UsuariosForm()
+
     data['form'] = User
     return render(request, 'home.html', data)
 
 #cadastro
 
 def create(request):
- #   form = UsuariosForm(request.POST or None)
-  #  if form.is_valid():
-  #      form.save()
-  #      return redirect('inicial')
     if request.method == 'GET':
       return render(request, 'desmatamento.html')
     else:
@@ -57,24 +43,7 @@ def create(request):
         user.save()
         login(request, user)
         return render(request, 'minhaConta.html')
-"""
 
-def create(request):
-    form = CustomUserCreationForm(request.POST or None)
-    if form.is_valid():
-        username = request.POST.get('username')
-        email = request.POST.get('email')
-        senha = request.POST.get('senha')
-        user = User.objects.filter(email=email).first()
-        if user:
-            return render(request, 'home.html', {
-                'error': 'E-mail já existe'
-            })
-        user = User.objects.create_user(username=username, email=email, password=senha)
-        User.save()
-        login(request, user)
-        return render(request, 'minhaConta.html')
-"""
 #login
 def login_site(request):
 
@@ -95,27 +64,6 @@ def login_site(request):
                 'error': 'Dados errados'
             })
 
-""" if request.method == 'GET':
-        return render(request,'desmatamento',{
-            'form': UsuariosForm
-        })
-    else:
-        user = authenticate(
-            request, email=request.POST['email'],
-            password=request.POST['password']
-        )
-
-        if user is None:
-            return render(request, 'home.html', {
-                'form': UsuariosForm,
-                'error': 'E-mail ou senha está incorreto'
-            })
-        else:
-            login(request, user)
-            return redirect('desmatamento')
-"""
-
-#até aqui
 
 def desmatamento(request):
     #api
@@ -129,9 +77,9 @@ def desmatamento(request):
         base_url = 'https://image.tmdb.org/t/p/original/'
         return f'{base_url}{caminho_da_imagem}'
 
-    # Substitua 'sua_chave_de_api' pela chave real que você obteve
+
     api_key = '9066b359122def6df97b6f108a6cf4de'
-    filme_id = 410718  # Substitua pelo ID real do filme que você está interessado
+    filme_id = 410718
 
     detalhes_do_filme = obter_detalhes_do_filme(api_key, filme_id)
 
@@ -146,35 +94,6 @@ def desmatamento(request):
 
     return render(request, 'desmatamento.html', {'url_da_imagem': url_da_imagem, 'nomeDoFilme': nomeDoFilme, 'descricao': descricao})
 
-def lixao(request):
-    return render(request, 'lixao.html')
-
-def tema3(request):   # mudar depois
-    return render(request, 'tema3.html')
-
-""" apaguei aqui e apaguei uma rota no urls
-def forum(request):
-    data = {}
-    data['db'] = Foruns.objects.all()
-    return render(request, 'forum.html', data)
-
-def criaForum(request):
-    data = {}
-    data['form'] = CriaForum()
-    return render(request, 'criaForum.html', data)"""
-
-
-def upload_profile_picture(request):
-    if request.method == 'POST':
-        form = foto(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('página_de_sucesso')
-    else:
-        form = foto()
-
-    return render(request, 'minhaConta.html', {'form': form})
-
 @login_required(login_url="desmatamento")
 def minhaConta(request):
     user = request.user
@@ -183,15 +102,12 @@ def minhaConta(request):
 def sair(request):
     logout(request)
     return redirect('desmatamento')
-# exclui o arquivo sair.html tem q testar se não quebrou nada
 
 def editar(request):
     if request.method == 'POST':
         form = CustomUserChangeForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-
-            # Redirecione para a página de perfil ou outra página após a atualização
     else:
         form = CustomUserChangeForm(instance=request.user)
 
@@ -202,7 +118,6 @@ def deletarUsuario(request, pk):
         user = User.objects.get(pk=pk)
         user.delete()
     except:
-        # Trate o caso em que o usuário não existe
         pass
     return redirect('desmatamento')
 

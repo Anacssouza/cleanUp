@@ -11,17 +11,13 @@ handler500 = 'cleanUpSite.views.custom_500_page'
 
 urlpatterns = [
     path('', views.desmatamento, name='home'),
-    path('inicial/', views.inicial, name='inicial'),
     path('create/', views.create, name='create'),
     path('sair', views.sair, name='sair'),
     path('sigin/', views.login_site, name='login'),
     path('desmatamento/', views.desmatamento, name="desmatamento"),
-    path('lixao/', views.lixao),
-    path('tema3/', views.tema3),
     path('minhaConta/', views.minhaConta, name='minhaConta'),
     path('editar/', views.editar, name='editar'),
     path('deletarUsuario/<int:pk>/', views.deletarUsuario, name='deletarUsuario'),
-    path('foto/', views.upload_profile_picture, name='upload_profile_picture'),
     path('editar/alterar_senha/', views.alterar_senha, name='alterar_senha'),
     path('contato/', views.contato, name='contato'),
     path('teste404/', views.teste404, name='teste404'),

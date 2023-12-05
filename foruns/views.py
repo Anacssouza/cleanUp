@@ -24,14 +24,9 @@ def forum(request):
             user = request.user
             form.save(user)
 
-            # Processar e salvar os dados do formulário, por exemplo:
-            # novo_forum = form.save(commit=False)
-            # novo_forum.save()
-            # Redirecione para a página de fórum ou faça outra ação após criar o tópico.
 
             return redirect('forum'),
     else:
-        # Se for uma solicitação GET, mostre a página do fórum com o formulário de criação
         data['db'] = Foruns.objects.order_by('-userfor__data_participacao').distinct()
 
         data['form'] = CriaForum()
@@ -75,7 +70,6 @@ def excluiF(request, pk):
             user = Foruns.objects.get(pk=pk)
             user.delete()
         except:
-            # Trate o caso em que o usuário não existe
             pass
         return redirect('forum')
 
@@ -85,14 +79,11 @@ def editarF(request, pk):
     if request.method == 'POST':
         form = CriaForum(request.POST)
         if form.is_valid():
-            # Processar os dados do formulário e salvar as edições no objeto 'forum'
             forum.titulo = form.cleaned_data['titulo']
             forum.descricao = form.cleaned_data['descricao']
             forum.save()
             return redirect('forum')
-            # Redirecione para a página de perfil ou outra página após a atualização
     else:
-        # Preencha o formulário com os valores existentes do objeto 'forum'
         form = CriaForum(initial={'titulo': forum.titulo, 'descricao': forum.descricao})
 
     return render(request, 'forum.html', {'form': form})
