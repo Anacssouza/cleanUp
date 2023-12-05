@@ -30,7 +30,7 @@ SECRET_KEY = ')*mav^h#qaji=m4gx@_(be2wv81%vw+6%b56ecf2fiui@$=80('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1/minhaConta/', '127.0.0.1', 'ea64-2804-676c-44c-6b00-c05d-26c1-fcdd-5808.ngrok-free.app']
+ALLOWED_HOSTS = ['127.0.0.1/minhaConta/', '127.0.0.1', '8d3a-2801-84-1-2088-78ad-d13f-5d7c-36d2.ngrok-free.app']
 
 
 # Application definition
